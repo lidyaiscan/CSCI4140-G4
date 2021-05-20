@@ -19,7 +19,7 @@ USE `G4` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `G4`.`ClientG4` (
   `clientCompIdG4` INT(11) NOT NULL AUTO_INCREMENT,
-  `clientCompName` VARCHAR(255) NOT NULL,
+  `clientCompNameG4` VARCHAR(255) NOT NULL,
   `clientCityG4` VARCHAR(255) NOT NULL,
   `clientCompPasswordG4` VARCHAR(255) NOT NULL,
   `moneyOwedG4` DECIMAL(19,4) NOT NULL DEFAULT 0,

@@ -4,7 +4,7 @@ const sql = require("../db.js");
 
 
 router.get('/', function(req, res){
-   const poNo = req.params.poNo
+   const poNoG4 = req.params.poNoG4
 
    sql.query(`SELECT * FROM posg4`, (err, result) => {
 
@@ -28,10 +28,10 @@ router.get('/', function(req, res){
     });
 });
 
-router.get('/:poNo', function(req, res){
-   const poNo = req.params.poNo
+router.get('/:poNoG4', function(req, res){
+   const poNoG4 = req.params.poNoG4
 
-   sql.query(`SELECT * FROM posg4 WHERE poNoG4 = ${poNo}`, (err, result) => {
+   sql.query(`SELECT * FROM posg4 WHERE poNoG4 = ${poNoG4}`, (err, result) => {
 
       // Failed request
       if (err) {

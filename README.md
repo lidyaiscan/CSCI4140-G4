@@ -7,7 +7,7 @@ CSCI 4140 Database Assignments
 All assignment related files are in subfolder a2
 
 1. Install the application using `npm install`
-2. Navigate to app/config/db.config.js and fill in your database information
+2. Navigate to a2/config/db.config.js and fill in your database information
 3. Start the server by using `npm start`
 
 

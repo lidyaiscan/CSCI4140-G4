@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const conn = require('../../config/dbConfig');
 
 const getPosG4 = (req, res) => new Promise((resolve, reject) => {
-    const q = 'SELECT * FROM posg4';
+    const q = 'SELECT * FROM POsG4';
     const db = conn.getDB();
     db.query(q, (err, data) => {
 
@@ -28,7 +28,7 @@ const getPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
         return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
     }
 
-    const q = `SELECT * FROM posG4 WHERE poNoG4 = ${poNoG4}`;
+    const q = `SELECT * FROM POsG4 WHERE poNoG4 = ${poNoG4}`;
     const db = conn.getDB();
     db.query(q, (err, data) => {
 

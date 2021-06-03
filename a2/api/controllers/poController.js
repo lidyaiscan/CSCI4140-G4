@@ -5,7 +5,6 @@ const getPos = (req, res) => new Promise((resolve, reject) => {
     const q = 'SELECT * FROM posg4';
     const db = conn.getDB();
     db.query(q, (err, data) => {
-
         // Error with request
         if (err) return reject(err);
 
@@ -22,6 +21,12 @@ const getPos = (req, res) => new Promise((resolve, reject) => {
 
 const getPoByNo = (req, res) => new Promise((resolve, reject) => {
     const poNoG4 = req.params.poNoG4
+
+    // Check if the parameter provided is a valid number
+    if (isNaN(poNoG4)) {
+        return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
+    }
+
     const q = `SELECT * FROM posG4 WHERE poNoG4 = ${poNoG4}`;
     const db = conn.getDB();
     db.query(q, (err, data) => {
@@ -31,7 +36,7 @@ const getPoByNo = (req, res) => new Promise((resolve, reject) => {
 
         // Request successful, data found
         if (data.length) {
-            return res.status(200).send(data[0]); // there can only be 1, so send the explicit object
+            return res.status(200).send(data[0]);
         }
         
         // Request successful, but no data

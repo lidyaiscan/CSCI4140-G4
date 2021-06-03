@@ -2,7 +2,7 @@ const Promise = require('bluebird');
 const conn = require('../../config/dbConfig');
 
 const getClientsG4 = (req, res) => new Promise((resolve, reject) => {
-    const q = 'SELECT * FROM Client';
+    const q = 'SELECT * FROM ClientG4';
     const db = conn.getDB();
     db.query(q, (err, data) => {
 

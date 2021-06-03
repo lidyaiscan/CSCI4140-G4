@@ -29,7 +29,6 @@ router.get('/', function(req, res){
 });
 
 router.get('/:poNo', function(req, res){
-   // res.send('GET route on POs.');
    const poNo = req.params.poNo
 
    sql.query(`SELECT * FROM posg4 WHERE poNoG4 = ${poNo}`, (err, result) => {
@@ -41,7 +40,7 @@ router.get('/:poNo', function(req, res){
         return;
       }
       
-      // Succesful request, data found
+      // Successful request, data found
       if (result.length) {
         console.log("found purchase order: ", result[0]);
         res.status(200).send(result[0])

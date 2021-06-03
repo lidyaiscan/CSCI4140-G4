@@ -5,8 +5,18 @@ const getPos = (req, res) => new Promise((resolve, reject) => {
     const q = 'SELECT * FROM posg4';
     const db = conn.getDB();
     db.query(q, (err, data) => {
+
+        // Error with request
         if (err) return reject(err);
-        return res.send(data);
+
+        // Request successful, data found
+        if (data.length) {
+         return res.status(200).send(data); // send entire data array
+        }
+
+        // Request successful, no data
+        return res.status(200).send([])
+
     });
 });
 
@@ -15,8 +25,17 @@ const getPoByNo = (req, res) => new Promise((resolve, reject) => {
     const q = `SELECT * FROM posG4 WHERE poNoG4 = ${poNoG4}`;
     const db = conn.getDB();
     db.query(q, (err, data) => {
+
+        // Error with request
         if (err) return reject(err);
-        return res.send(data);
+
+        // Request successful, data found
+        if (data.length) {
+            return res.status(200).send(data[0]); // there can only be 1, so send the explicit object
+        }
+        
+        // Request successful, but no data
+        return res.status(200).send([]);
     });
 });
 

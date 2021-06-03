@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
+
 const poController = require('../controllers/poController');
-const partsController = require('../controllers/partsController');
+const partController = require('../controllers/partController');
+const clientController = require('../controllers/clientController');
 
 router.get('/pos', poController.getPosG4);
 router.get('/pos/:poNoG4', poController.getPoByNoG4);

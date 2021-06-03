@@ -1,7 +1,7 @@
 const Promise = require('bluebird');
 const conn = require('../../config/dbConfig');
 
-const getClients = (req, res) => new Promise((resolve, reject) => {
+const getClientsG4 = (req, res) => new Promise((resolve, reject) => {
     const q = 'SELECT * FROM Client';
     const db = conn.getDB();
     db.query(q, (err, data) => {
@@ -22,5 +22,5 @@ const getClients = (req, res) => new Promise((resolve, reject) => {
 
 
 module.exports = {
-    getClients
+    getClientsG4
 }

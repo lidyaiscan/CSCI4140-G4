@@ -1,10 +1,11 @@
 const Promise = require('bluebird');
 const conn = require('../../config/dbConfig');
 
-const getPos = (req, res) => new Promise((resolve, reject) => {
+const getPosG4 = (req, res) => new Promise((resolve, reject) => {
     const q = 'SELECT * FROM posg4';
     const db = conn.getDB();
     db.query(q, (err, data) => {
+
         // Error with request
         if (err) return reject(err);
 
@@ -19,7 +20,7 @@ const getPos = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
-const getPoByNo = (req, res) => new Promise((resolve, reject) => {
+const getPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
     const poNoG4 = req.params.poNoG4
 
     // Check if the parameter provided is a valid number
@@ -45,6 +46,6 @@ const getPoByNo = (req, res) => new Promise((resolve, reject) => {
 });
 
 module.exports = {
-    getPos,
-    getPoByNo
+    getPosG4,
+    getPoByNoG4
 }

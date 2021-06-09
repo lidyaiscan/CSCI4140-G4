@@ -1,8 +1,9 @@
 const Promise = require('bluebird');
 const conn = require('../../config/dbConfig');
 
+// Return all Purchase Orders
 const getPosG4 = (req, res) => new Promise((resolve, reject) => {
-    const q = 'SELECT * FROM POsG4';
+    const q = 'SELECT poNoG4, clientCompNameG4, datePOG4, statusDescriptionG4 FROM POsG4 INNER JOIN statusG4 ON POsG4.statusG4=StatusG4.statusNoG4 INNER JOIN clientG4 ON POsG4.clientCompIdG4=clientG4.clientCompIdG4';
     const db = conn.getDB();
     db.query(q, (err, data) => {
 
@@ -20,6 +21,7 @@ const getPosG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+// Return specific Purchase Order by poNo
 const getPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
     const poNoG4 = req.params.poNoG4
 
@@ -28,7 +30,7 @@ const getPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
         return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
     }
 
-    const q = `SELECT * FROM POsG4 WHERE poNoG4 = ${poNoG4}`;
+    const q = `SELECT poNoG4, clientCompNameG4, datePOG4, statusDescriptionG4 FROM POsG4 INNER JOIN statusG4 ON POsG4.statusG4=StatusG4.statusNoG4 INNER JOIN clientG4 ON POsG4.clientCompIdG4=clientG4.clientCompIdG4 WHERE poNoG4 = ${poNoG4}`;
     const db = conn.getDB();
     db.query(q, (err, data) => {
 

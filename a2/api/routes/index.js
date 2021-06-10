@@ -10,5 +10,6 @@ router.get('/pos/:poNoG4', poController.getPoByNoG4);
 router.get('/parts', partController.getPartsG4);
 router.get('/parts/:partNoG4', partController.getPartByNoG4);
 router.get('/clients', clientController.getClientsG4);
+router.get('/clients/:clientCompIdG4', clientController.getClientByNoG4);
 
 module.exports = router;

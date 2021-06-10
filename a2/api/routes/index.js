@@ -16,4 +16,8 @@ router.get('/clients/:clientCompIdG4', clientController.getClientByNoG4);
 router.get('/client/pos/:clientCompIdG4', poController.clientGetPosG4);
 router.get('/client/pos/:clientCompIdG4/:poNoG4', poController.clientGetPoByNoG4);
 
+//client agent service vii. List POs; viii. Track One PO
+router.get('/agent/pos', poController.getPosG4);
+router.get('/agent/pos/:poNoG4', poController.getPoByNoG4);
+
 module.exports = router;

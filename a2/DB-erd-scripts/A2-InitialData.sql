@@ -1,12 +1,12 @@
 USE `G4`;
 
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (1, 'Ford', 'Halifax', '12345', 1000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (1, 'Ford', 'Halifax', '12345', 10000);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (2, 'Toyota', 'Toronto', 'abc123', 3.50);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (3, 'Nissan', 'Vancouver', 'nitro', 1020.10);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (4, 'Honda', 'Truro', 'cats', 300.10);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (5, 'GMC', 'Boston', 'dogs', 444.15);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (5, 'GMC', 'Boston', 'dogs', 9888.01);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (6, 'Chevrolet', 'San Francisco', 'birds', 150.15);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (7, 'Acura', 'Denver', 'trees', 275.33);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (7, 'Acura', 'Denver', 'trees', 9222.01);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (8, 'Lexus', 'Dallas', 'chickens', 111.19);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (9, 'Audi', 'Houston', 'plants', 200.10);
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (10, 'Bentley', 'New York', 'cars100', 600);
@@ -24,7 +24,7 @@ INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPric
 
 
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (1, 'Ordered');
-INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (2, 'Prepared for shipment');
+INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (2, 'Client paid. Preparing for shipment');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (3, 'On the way');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (4, 'Received');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (5, 'Canceled');
@@ -33,7 +33,7 @@ INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(1,
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(2, 1, '2020-07-31 01:20:31', 5);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(3, 3, '2021-04-23 05:25:34', 4);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(4, 4, '2021-01-09 07:09:11', 3);
-INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(5, 5, '2020-11-28 06:10:15', 5);
+INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(5, 5, '2020-11-28 06:10:15', 2);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(6, 6, '2021-04-19 08:14:00', 1);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(7, 7, '2021-03-22 09:04:08', 2);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(8, 8, '2020-12-02 03:23:16', 4);
@@ -51,3 +51,8 @@ INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`)
 INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(8, 2, 9, 666.99, 50);
 INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(9, 7, 5, 777.99, 60);
 INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(10, 10, 8, 888.99, 80);
+
+INSERT INTO PaymentG4 (`paymentNoG4`, `poNoG4`, `amountPaidG4`, `datePaidG4`) VALUES (1, 5, 111.9900, '2020-11-28 08:10:10');
+INSERT INTO PaymentG4 (`paymentNoG4`, `poNoG4`, `amountPaidG4`, `datePaidG4`) VALUES (2, 7, 777.9900, '2021-03-22 10:04:00');
+
+

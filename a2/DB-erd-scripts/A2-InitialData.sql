@@ -30,7 +30,7 @@ INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (4, 'Received'
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (5, 'Canceled');
 
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(1, 2, '2021-05-11 02:08:38', 1);
-INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(2, 1, '2020-07-31 01:20:31', 5);
+INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(2, 1, '2020-07-31 01:20:31', 1);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(3, 3, '2021-04-23 05:25:34', 4);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(4, 4, '2021-01-09 07:09:11', 3);
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(5, 5, '2020-11-28 06:10:15', 2);

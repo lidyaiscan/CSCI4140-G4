@@ -23,6 +23,6 @@ router.get('/agent/pos/:poNoG4', poController.getPoByNoG4);
 
 // Additional Features
 router.patch('/client/payment/:clientCompIdG4/:poNoG4', paymentController.makePaymentByPoNoAndClientCompIdG4);
-router.patch('/parts/:partNoG4', partController.updatePartByNoG4);
+router.patch('/agent/parts/:partNoG4', partController.updatePartByNoG4);
 
 module.exports = router;

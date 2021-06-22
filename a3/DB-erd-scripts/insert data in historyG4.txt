@@ -1,0 +1,39 @@
+-- 'Ordered'
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(1,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(2,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(3,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(4,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(5,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(6,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(7,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(8,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(9,'Ordered',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(10,'Ordered',default);
+
+-- 'Client paid. Preparing for shipment'
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(1,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(2,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(3,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(4,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(5,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(6,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(7,'Client paid. Preparing for shipment',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(8,'Client paid. Preparing for shipment',default);
+
+-- 'On the way'
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(1,'On the way',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(2,'On the way',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(3,'On the way',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(4,'On the way',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(5,'On the way',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(6,'On the way',default);
+
+-- 'Received'
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(1,'Received',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(2,'Received',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(3,'Received',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(4,'Received',default);
+
+-- 'Canceled'
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(1,'Canceled',default);
+INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`updatedStatusG4`,`dateG4`)VALUES(2,'Canceled',default);

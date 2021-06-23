@@ -139,13 +139,19 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `jianhua`.`HistoryG4` (
   `idHistoryG4` INT NOT NULL AUTO_INCREMENT,
   `poNoG4` INT(11) NOT NULL,
-  `updatedStatusG4` VARCHAR(255) NOT NULL,
   `dateG4` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `statusNoG4` INT(11) NOT NULL,
   PRIMARY KEY (`idHistoryG4`),
   INDEX `fk_HistoryG4_POsG41_idx` (`poNoG4` ASC) ,
+  INDEX `fk_HistoryG4_StatusG41_idx` (`statusNoG4` ASC) ,
   CONSTRAINT `fk_HistoryG4_POsG41`
     FOREIGN KEY (`poNoG4`)
     REFERENCES `jianhua`.`POsG4` (`poNoG4`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_HistoryG4_StatusG41`
+    FOREIGN KEY (`statusNoG4`)
+    REFERENCES `jianhua`.`StatusG4` (`statusNoG4`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

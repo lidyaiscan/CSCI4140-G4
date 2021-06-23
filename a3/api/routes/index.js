@@ -11,10 +11,10 @@ router.get('/pos', poController.getPosG4);
 router.get('/pos/:poNoG4', poController.getPoByNoG4);
 router.get('/parts', partController.getPartsG4);
 router.get('/parts/:partNoG4', partController.getPartByNoG4);
-router.get('/clients', clientController.getClientsG4);
-router.get('/clients/:clientCompIdG4', clientController.getClientByNoG4);
 
 //** Client-specific Service **//
+router.get('/clients', clientController.getClientsG4);
+router.get('/clients/:clientCompIdG4', clientController.getClientByNoG4);
 router.get('/client/pos/:clientCompIdG4', poController.clientGetPosG4);
 router.get('/client/pos/:clientCompIdG4/:poNoG4', poController.clientGetPoByNoG4);
 // additional feature
@@ -25,5 +25,6 @@ router.get('/agent/pos', poController.getPosG4);
 router.get('/agent/pos/:poNoG4', poController.getPoByNoG4);
 router.patch('/agent/parts/:partNoG4', partController.updatePartByNoG4);
 router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG4);
+router.patch('/agent/parts/:partNoG4/replenish', partController.replenishPartsByNoG4);
 
 module.exports = router;

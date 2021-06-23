@@ -59,7 +59,7 @@ const updatePartByNoG4 = (req, res) => new Promise((resolve, reject) => {
     }
 
     // Call a stored procedure to process the update transaction.
-    const q = `call UDPATE_PARTS(${params.partNoG4}, '${body.partNameG4}', '${body.partDescriptionG4}', ${body.currentPriceG4}, ${body.qtyG4});`;
+    const q = `call PROC_PART_UPDATE_G4(${params.partNoG4}, '${body.partNameG4}', '${body.partDescriptionG4}', ${body.currentPriceG4}, ${body.qtyG4});`;
     const db = conn.getDB();
     db.query(q,  (err, data) => {
 

@@ -134,8 +134,8 @@ const updatePoStatus = (req, res) => new Promise((resolve, reject) => {
         // Error occured with request
         if (err) return reject(err);
 
-        // Send the process results to the requestor.
-        return res.send(data);
+        // Request successful
+        return res.status(200).send(data.message);
     });
 });
 

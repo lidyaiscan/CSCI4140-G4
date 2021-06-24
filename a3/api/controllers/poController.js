@@ -116,9 +116,33 @@ const clientGetPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+/* The agents are able to directly change the PO status. */
+const updatePoStatus = (req, res) => new Promise((resolve, reject) => {
+
+    const body = req && req.body;
+    const params = req && req.params;
+
+    // Check if the provided parameters are valid numbers.
+    if (isNaN(params.poNoG4) || isNaN(body.statusG4)) {
+        return res.status(400).send('Bad Request - poNoG4 and statusG4 must be valid numbers') // Return a 400 - Bad Request
+    }
+
+    const q = `UPDATE POsG4 SET statusG4='${body.statusG4}' WHERE poNoG4='${params.poNoG4}'`;
+    const db = conn.getDB();
+    db.query(q,  (err, data) => {
+
+        // Error occured with request
+        if (err) return reject(err);
+
+        // Send the process results to the requestor.
+        return res.send(data);
+    });
+});
+
 module.exports = {
     getPosG4,
     getPoByNoG4,
     clientGetPosG4,
-    clientGetPoByNoG4
+    clientGetPoByNoG4,
+    updatePoStatus
 }

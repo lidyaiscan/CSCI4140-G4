@@ -53,13 +53,13 @@ const updatePartByNoG4 = (req, res) => new Promise((resolve, reject) => {
     const params = req && req.params;
 
     // Check if the provided parameter is a valid number.
-    if (isNaN(params.partNoG4) || isNaN(body.currentPriceG4) || isNaN(body.qtyG4) ||
-        params.partNoG4 < 0 || body.currentPriceG4 < 0 || body.qtyG4 < 0) {
-        return res.status(400).send('Bad Request - partNoG4, currentPriceG4, and qtyG4 must be positive numbers') // Return a 400 - Bad Request
+    if (isNaN(params.partNoG4) || isNaN(body.currentPriceG4) || isNaN(body.qtyG4) || isNaN(body.minQtyG4) ||
+        params.partNoG4 < 0 || body.currentPriceG4 < 0 || body.qtyG4 < 0 || body.minQtyG4 < 0) {
+        return res.status(400).send('Bad Request - partNoG4, currentPriceG4, qtyG4, minQtyG4 must be positive numbers') // Return a 400 - Bad Request
     }
 
     // Call a stored procedure to process the update transaction.
-    const q = `call PROC_PART_UPDATE_G4(${params.partNoG4}, '${body.partNameG4}', '${body.partDescriptionG4}', ${body.currentPriceG4}, ${body.qtyG4});`;
+    const q = `call PROC_PART_UPDATE_G4(${params.partNoG4}, '${body.partNameG4}', '${body.partDescriptionG4}', ${body.currentPriceG4}, ${body.qtyG4}, ${body.minQtyG4});`;
     const db = conn.getDB();
     db.query(q,  (err, data) => {
 
@@ -96,7 +96,7 @@ const updatePartPriceByNoG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
-// Replenish a specific Part specified as the partNoG4
+// Replenish the quantity of the specific Part specified as the partNoG4
 const replenishPartsByNoG4 = (req, res) => new Promise((resolve, reject) => {
 
     const body = req && req.body;

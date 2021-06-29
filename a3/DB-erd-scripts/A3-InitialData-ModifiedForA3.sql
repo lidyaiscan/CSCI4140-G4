@@ -45,7 +45,7 @@ INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(9,
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(10, 10, '2021-05-09 10:15:01', 1);
 
 
---POLinesG4 table --
+-- POLinesG4 table --
 INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(1, 2, 3, 3789.99, 12);
 INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(2, 2, 1, 555.99, 6);
 INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(3, 5, 5, 111.99, 15);

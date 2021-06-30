@@ -3,7 +3,7 @@ CREATE TRIGGER TRG_PO_HISTORY_AFTER_INSERT_G4
 AFTER INSERT ON POsG4
 FOR EACH ROW
 BEGIN
-   	INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(NEW.poNoG4,NEW.statusG4 ,default);
+   	INSERT INTO `HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(NEW.poNoG4,NEW.statusG4 ,default);
 END; $$
 DELIMITER ;
 
@@ -12,10 +12,9 @@ CREATE TRIGGER TRG_PO_HISTORY_AFTER_UPDATE_G4
 AFTER UPDATE ON POsG4
 FOR EACH ROW
 BEGIN
-   		INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(NEW.poNoG4,NEW.statusG4 ,default);
+   		INSERT INTO `HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(NEW.poNoG4,NEW.statusG4 ,default);
 END; $$
 DELIMITER ;
-Show triggers;
 
 -- ------------------------------------------------------------------------------------------------------------
 -- TEST

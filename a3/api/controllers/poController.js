@@ -117,7 +117,7 @@ const clientGetPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
 });
 
 /* Clients can create a PO and specify a part and it's quantity. */
-const createPo = (req, res) => new Promise((resolve, reject) => {
+const createPoG4 = (req, res) => new Promise((resolve, reject) => {
 
     const body = req && req.body;
     const params = req && req.params;
@@ -191,12 +191,7 @@ module.exports = {
     getPoByNoG4,
     clientGetPosG4,
     clientGetPoByNoG4,
-<<<<<<< HEAD
+    createPoG4,
     updatePoStatusG4,
     cancelPoG4
-=======
-    createPo,
-    updatePoStatus,
-    cancelPo
->>>>>>> 9933d7b1db47032fcd2a42dfc7158e6ce05ee3e0
 }

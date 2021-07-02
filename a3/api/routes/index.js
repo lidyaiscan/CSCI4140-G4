@@ -19,7 +19,7 @@ router.get('/clients/:clientCompIdG4', clientController.getClientByNoG4);
 router.get('/client/pos/:clientCompIdG4', poController.clientGetPosG4);
 router.get('/client/pos/:clientCompIdG4/:poNoG4', poController.clientGetPoByNoG4);
 
-router.patch('/client/createPo/:clientCompIdG4', poController.createPo);
+router.patch('/client/createPo/:clientCompIdG4', poController.createPoG4);
 
 // additional feature
 router.patch('/client/payment/:clientCompIdG4/:poNoG4', paymentController.makePaymentByPoNoAndClientCompIdG4);
@@ -27,11 +27,10 @@ router.patch('/client/payment/:clientCompIdG4/:poNoG4', paymentController.makePa
 //** Agent-specific Service **//
 router.get('/agent/pos', poController.getPosG4);
 router.get('/agent/pos/:poNoG4', poController.getPoByNoG4);
-router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatusG4);
-
 router.patch('/agent/parts/:partNoG4', partController.updatePartByNoG4);
 router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG4);
 router.patch('/agent/parts/:partNoG4/replenish', partController.replenishPartsByNoG4);
 router.patch('/agent/:clientCompIdG4/balance', clientController.updateClient);
+router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatusG4);
 
 module.exports = router;

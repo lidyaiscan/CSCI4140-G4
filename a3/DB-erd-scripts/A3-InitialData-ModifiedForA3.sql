@@ -63,32 +63,32 @@ INSERT INTO PaymentG4 (`paymentNoG4`, `poNoG4`, `amountPaidG4`, `datePaidG4`) VA
 
 
 -- HistoryG4 table --
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(1,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(2,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(5,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(6,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(7,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(8,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(9,1,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(10,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(1,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(2,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(5,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(6,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(7,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(8,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(9,1,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(10,1,default);
 
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,2,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,2,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(5,2,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(6,2,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(7,2,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(8,2,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,2,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,2,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(5,2,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(6,2,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(7,2,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(8,2,default);
 
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,3,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,3,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(5,3,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(6,3,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,3,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,3,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(5,3,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(6,3,default);
 
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,4,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,4,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(3,4,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(4,4,default);
 
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(1,5,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(2,5,default);
-INSERT INTO `jianhua`.`HistoryG4`(`poNoG4`,`statusNoG4`,`dateG4`)VALUES(8,5,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(1,5,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(2,5,default);
+INSERT INTO HistoryG4 (`poNoG4`,`statusNoG4`,`dateG4`)VALUES(8,5,default);

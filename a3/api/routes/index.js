@@ -27,8 +27,6 @@ router.patch('/client/payment/:clientCompIdG4/:poNoG4', paymentController.makePa
 //** Agent-specific Service **//
 router.get('/agent/pos', poController.getPosG4);
 router.get('/agent/pos/:poNoG4', poController.getPoByNoG4);
-router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatus);
-
 router.patch('/agent/parts/:partNoG4', partController.updatePartByNoG4);
 router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG4);
 router.patch('/agent/parts/:partNoG4/replenish', partController.replenishPartsByNoG4);

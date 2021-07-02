@@ -4,10 +4,10 @@ let conn = null;
 
 const connectDB = () => new Promise((resolve, reject) => {
     conn = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: 'admin',
-      database: 'g4'
+      host: 'db.cs.dal.ca',
+      user: 'yifanw',
+      password: 'B00791285',
+      database: 'yifanw'
     });
     // conn.connect(function(err) {
     //   if (err) throw err;

@@ -116,6 +116,28 @@ const clientGetPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+/* Clients can create a PO and specify a part and it's quantity. */
+const createPo = (req, res) => new Promise((resolve, reject) => {
+
+    const body = req && req.body;
+    const params = req && req.params;
+
+    // Check if the provided parameters are valid.
+    if (isNaN(params.clientCompIdG4) || isNaN(body.partNoG4) || isNaN(body.qtyG4)) {
+        return res.status(400).send('Bad Request - clientCompIdG4, partNoG4 and qtyG4 must be valid numbers') // Return a 400 - Bad Request
+    }
+
+    const q = `call PROC_CREATE_PO_G4(${params.clientCompIdG4}, ${body.partNoG4}, ${body.qtyG4});`;
+    const db = conn.getDB();
+    db.query(q, (err, data) => {
+        // Error occured with request
+        if (err) return reject(err);
+
+        // Request successful
+        return res.status(200).send(data.message);
+    });
+});
+
 /* The agents are able to directly change the PO status. */
 const updatePoStatus = (req, res) => new Promise((resolve, reject) => {
 
@@ -169,6 +191,7 @@ module.exports = {
     getPoByNoG4,
     clientGetPosG4,
     clientGetPoByNoG4,
+    createPo,
     updatePoStatus,
     cancelPo
 }

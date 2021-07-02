@@ -31,6 +31,7 @@ router.patch('/agent/parts/:partNoG4', partController.updatePartByNoG4);
 router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG4);
 router.patch('/agent/parts/:partNoG4/replenish', partController.replenishPartsByNoG4);
 router.patch('/agent/:clientCompIdG4/balance', clientController.updateClient);
+router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatus);
 
 
 module.exports = router;

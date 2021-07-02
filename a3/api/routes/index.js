@@ -11,7 +11,7 @@ router.get('/pos', poController.getPosG4);
 router.get('/pos/:poNoG4', poController.getPoByNoG4);
 router.get('/parts', partController.getPartsG4);
 router.get('/parts/:partNoG4', partController.getPartByNoG4);
-router.get('/cancelPo/:poNoG4', poController.cancelPo);
+router.get('/cancelPo/:poNoG4', poController.cancelPoG4);
 
 //** Client-specific Service **//
 router.get('/clients', clientController.getClientsG4);
@@ -24,7 +24,7 @@ router.patch('/client/payment/:clientCompIdG4/:poNoG4', paymentController.makePa
 //** Agent-specific Service **//
 router.get('/agent/pos', poController.getPosG4);
 router.get('/agent/pos/:poNoG4', poController.getPoByNoG4);
-router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatus);
+router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatusG4);
 
 router.patch('/agent/parts/:partNoG4', partController.updatePartByNoG4);
 router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG4);

@@ -117,7 +117,7 @@ const clientGetPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
 });
 
 /* The agents are able to directly change the PO status. */
-const updatePoStatus = (req, res) => new Promise((resolve, reject) => {
+const updatePoStatusG4 = (req, res) => new Promise((resolve, reject) => {
 
     const body = req && req.body;
     const params = req && req.params;
@@ -139,7 +139,7 @@ const updatePoStatus = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
-const cancelPo = (req, res) => new Promise((resolve, reject) => {
+const cancelPoG4 = (req, res) => new Promise((resolve, reject) => {
 
     const poNoG4 = req.params.poNoG4;
 
@@ -169,6 +169,6 @@ module.exports = {
     getPoByNoG4,
     clientGetPosG4,
     clientGetPoByNoG4,
-    updatePoStatus,
-    cancelPo
+    updatePoStatusG4,
+    cancelPoG4
 }

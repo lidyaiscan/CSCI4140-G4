@@ -1,7 +1,5 @@
--- Cancel_the_Progressing_PO_SP
--- check if it is paied 1.if not paid  2.if it is paied then update parts update clientG4, partsg4 
 DELIMITER //
-CREATE PROCEDURE `Cancel_the_Progressing_PO_SP`(IN inPoNoG4 INT(11))
+CREATE PROCEDURE `PROC_CANCEL_THE_PROGRESSING_PO_G4`(IN inPoNoG4 INT(11))
 BEGIN
 	DECLARE statusNo INT;
     DECLARE poNo INT;
@@ -23,8 +21,8 @@ BEGIN
 			UPDATE POsG4
 			SET statusG4 = 5
 			WHERE poNoG4 = poNo;
-            -- posg4_AFTER_UPDATE_STATUS_REFUND trigger will do the refound money and restock qty in parts
-        ELSEIF statusNo = 5 THEN
+            	-- posg4_AFTER_UPDATE_STATUS_REFUND trigger will do the refound money and restock qty in parts
+       		ELSEIF statusNo = 5 THEN
 			SIGNAL SQLSTATE '45000'
 			SET MESSAGE_TEXT='This purchurse order has already been canceled';
         END IF;

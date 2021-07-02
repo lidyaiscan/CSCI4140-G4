@@ -139,10 +139,36 @@ const updatePoStatus = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+const cancelPo = (req, res) => new Promise((resolve, reject) => {
+
+    const poNoG4 = req.params.poNoG4;
+
+    // Check if the provided parameters are valid numbers.
+    if (isNaN(poNoG4)) {
+        return res.status(400).send('Bad Request - poNoG4 must not be null') // Return a 400 - Bad Request
+    }
+    
+    // Call a stored procedure to process the payment transaction.
+    const q = `call PROC_CANCEL_THE_PROGRESSING_PO_G4(${poNoG4});`;
+    const db = conn.getDB();
+    db.query(q,  (err, data) => {
+
+        // Error occured with request
+        if (err){
+            reject(new Error('An error occurred: '+err));
+            return res.send('An error occurred: '+err); //For now, we also inform the end user about the type of error.
+        }else{
+            // Send the process results to the requestor.
+            return res.send('the purchase order ' + poNoG4 + ' has been canceled');
+        }
+    });
+});
+
 module.exports = {
     getPosG4,
     getPoByNoG4,
     clientGetPosG4,
     clientGetPoByNoG4,
-    updatePoStatus
+    updatePoStatus,
+    cancelPo
 }

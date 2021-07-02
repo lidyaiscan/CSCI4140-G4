@@ -11,6 +11,7 @@ router.get('/pos', poController.getPosG4);
 router.get('/pos/:poNoG4', poController.getPoByNoG4);
 router.get('/parts', partController.getPartsG4);
 router.get('/parts/:partNoG4', partController.getPartByNoG4);
+router.get('/cancelPo/:poNoG4', poController.cancelPo);
 
 //** Client-specific Service **//
 router.get('/clients', clientController.getClientsG4);

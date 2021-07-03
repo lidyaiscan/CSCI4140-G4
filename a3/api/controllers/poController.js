@@ -134,7 +134,7 @@ const createPoG4 = (req, res) => new Promise((resolve, reject) => {
         if (err) return reject(err);
 
         // Request successful
-        return res.status(200).send(data.message);
+        return res.send(data);
     });
 });
 

@@ -21,6 +21,18 @@ BEGIN
 			UPDATE POsG4
 			SET statusG4 = 5
 			WHERE poNoG4 = poNo;
+		ELSEIF statusNo = 2 THEN 
+			UPDATE POsG4
+			SET statusG4 = 5
+			WHERE poNoG4 = poNo;
+		ELSEIF statusNo = 3 THEN 
+			UPDATE POsG4
+			SET statusG4 = 5
+			WHERE poNoG4 = poNo;
+		ELSEIF statusNo = 4 THEN 
+			UPDATE POsG4
+			SET statusG4 = 5
+			WHERE poNoG4 = poNo;
             	-- posg4_AFTER_UPDATE_STATUS_REFUND trigger will do the refound money and restock qty in parts
        		ELSEIF statusNo = 5 THEN
 			SIGNAL SQLSTATE '45000'

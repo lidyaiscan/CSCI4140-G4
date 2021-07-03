@@ -16,11 +16,3 @@ BEGIN
 END; $$
 DELIMITER ;
 
--- ------------------------------------------------------------------------------------------------------------
--- TEST
--- 1. run script : INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(100, 2, '2021-05-11 02:08:38', 1);
--- 2. check if there is a new row in POsG4 and HistoryG4 that matches the new entered info
--- 3. run script: UPDATE POsG4 SET statusG4 = 2 WHERE poNoG4 = 100;
--- 4. check if there is a new row in POsG4 and HistoryG4 that matches the new entered info
-
--- ------------------------------------------------------------------------------------------------------------

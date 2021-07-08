@@ -1,0 +1,39 @@
+.median-values {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main {
+    text-align: center;
+  }
+  
+  .values {
+    width: 250px;
+    height: max-content;
+    padding: 20px;
+    border: 1px solid rgb(88, 104, 44);
+    align-self: center;
+    background-color: rgb(167, 163, 107);
+    border-radius: 10px;
+    margin: 15px;
+  }
+  
+  .input-form {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    margin: auto;
+  }
+  
+  .error{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border: 1px solid palevioletred;
+    align-self: center;
+    background-color: palevioletred;
+    margin: auto;
+  }
+  

@@ -12,7 +12,10 @@ export default class Login extends Component {
     loginUser = (event) => {
 
         event.preventDefault();
-        Axios.post('http://localhost:8080/login', {
+
+        //FYI - Below endpoint was updated to prevent CORS issue. 
+        //      You can change your port (e.g. 8000, 8080) in package.json ("proxy": "http://localhost:8000").
+        Axios.get('/parts', {
             'userName': this.state.userName,
             'password': this.state.password
         }).then(function (response) {

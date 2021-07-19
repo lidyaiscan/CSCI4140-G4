@@ -12,7 +12,9 @@ export default class Home extends Component {
 
     getOrders = () => {
 
-        Axios.get('http://localhost:8080/getAllOrders').then((response) => {
+        //FYI - Below endpoint was updated to prevent CORS issue. 
+        //      You can change your port (e.g. 8000, 8080) in package.json ("proxy": "http://localhost:8000").
+        Axios.get('/parts').then((response) => {
             this.setState({ orders: response.data });
         }).catch((err) => {
             alert(err);
@@ -28,9 +30,9 @@ export default class Home extends Component {
                 <div id="output-values" className="median-values">
                     {this.state.orders.map((element, index) => (
                         <div className="values" key={index}>
-                            <p>{element.companyName}</p>
-                            <p>{element.productName}</p>
-                            <p>{element.billAmount}</p>
+                            <p>{element.partNoG4}</p>
+                            <p>{element.partNoG4}</p>
+                            <p>{element.partNoG4}</p>
                         </div>
                     ))}
                 </div>

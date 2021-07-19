@@ -18,6 +18,8 @@ router.get('/clients', clientController.getClientsG4);
 router.get('/clients/:clientCompIdG4', clientController.getClientByNoG4);
 router.get('/client/pos/:clientCompIdG4', poController.clientGetPosG4);
 router.get('/client/pos/:clientCompIdG4/:poNoG4', poController.clientGetPoByNoG4);
+//Added at A4
+router.get('/client/pos/summary/:clientCompIdG4/:poNoG4', poController.clientGetPoSummaryG4);
 
 router.patch('/client/createPo/:clientCompIdG4', poController.createPoG4);
 

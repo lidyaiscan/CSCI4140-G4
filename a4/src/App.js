@@ -5,9 +5,14 @@ import Login from './Login/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './Home/Home'
 import POdetail from './POdetail/POdetail'
+import Header from './Header/Header';
 
 function App() {
   return (
+    <>
+    <div className="header">
+      <Header/>
+    </div>
     <div className="container">
       <Router>
         <Switch>
@@ -17,6 +22,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </>
   );
 }
 

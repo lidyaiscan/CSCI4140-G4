@@ -1,0 +1,49 @@
+  .main {
+    text-align: center;
+  }
+
+  .search-input{
+    margin: auto;
+    width: 30%;
+  }
+  
+  .order-summary {
+    width: 450px;
+    height: max-content;
+    padding: 20px;
+    border: 1px solid rgb(104, 68, 44);
+    align-self: center;
+    background-color: rgb(192, 247, 178);
+    border-radius: 10px;
+    margin: 15px;
+  }
+
+  .order-detail {
+    width: 450px;
+    height: max-content;
+    padding: 20px;
+    border: 1px solid rgb(104, 68, 44);
+    align-self: center;
+    background-color: rgb(190, 236, 248);
+    border-radius: 10px;
+    margin: 15px;
+  }
+  
+  .input-form {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    margin: auto;
+  }
+  
+  .error{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border: 1px solid palevioletred;
+    align-self: center;
+    background-color: palevioletred;
+    margin: auto;
+  }
+  
+

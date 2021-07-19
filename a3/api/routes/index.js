@@ -5,6 +5,7 @@ const poController = require('../controllers/poController');
 const partController = require('../controllers/partController');
 const clientController = require('../controllers/clientController');
 const paymentController = require('../controllers/paymentController');
+const authenticationController = require('../controllers/authenticationController');
 
 //** Shared Service **//
 router.get('/pos', poController.getPosG4);
@@ -34,5 +35,8 @@ router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG
 router.patch('/agent/parts/:partNoG4/replenish', partController.replenishPartsByNoG4);
 router.patch('/agent/:clientCompIdG4', clientController.updateClient);
 router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatusG4);
+
+router.post('/authenticate/client', authenticationController.loginClientG4);
+router.post('/authenticate/agent', authenticationController.loginAgentG4);
 
 module.exports = router;

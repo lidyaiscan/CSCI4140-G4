@@ -14,8 +14,12 @@ export default class LoginForm extends Component {
     componentDidMount() {
         // TO-DO: Check for type and redirect to the proper page based on that
 
-        if (localStorage.getItem('type' === 'agent')) {
+        const type = localStorage.getItem('type');
+
+        if (type === 'agent') {
             window.location.href = "/listpos";
+        } else if (type === 'client') {
+            window.location.href = '/client/listpos'
         }
     }
 

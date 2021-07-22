@@ -4,6 +4,7 @@ import './App.css';
 import Login from './Login/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './Home/Home'
+import ListPOs from './ListPOs/ListPOs'
 import POdetail from './POdetail/POdetail'
 import Header from './Header/Header';
 import MakeNewPo from './MakeNewPo/MakeNewPo'
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Login} />
           <Route exact path='/home' component={Home} />
+          <Route exact path='/listpos' component={ListPOs} />
           <Route exact path='/podetail' component={POdetail} />
           <Route exact path='/makenewpo' component={MakeNewPo} />
         </Switch>

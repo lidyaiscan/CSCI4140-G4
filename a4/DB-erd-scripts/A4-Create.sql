@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `G4`.`HistoryG4` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-CREATE TABLE `g4`.`AgentsPasswordsg4` (
+CREATE TABLE `G4`.`AgentsPasswordsG4` (
   `usernameG4` VARCHAR(50) NOT NULL,
   `passwordG4` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`usernameG4`),

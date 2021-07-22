@@ -35,8 +35,13 @@ export default class LoginForm extends Component {
               if (response.status === 200) {
                 localStorage.setItem('username', this.state.username);
                 localStorage.setItem('type', this.props.type);
+                // localStorage.setItem('id')
                 if (this.props.type === 'agent') {
                     window.location.href = "/listpos";
+                }
+                if (this.props.type === 'client') {
+                    localStorage.setItem('id', response.data[0].clientCompIdG4);
+                    window.location.href = "/client/listpos";
                 }
             }
           } catch (error) {

@@ -14,8 +14,8 @@ export default class LoginForm extends Component {
     componentDidMount() {
         // TO-DO: Check for type and redirect to the proper page based on that
 
-        if (localStorage.getItem('type')) {
-            window.location.href = "/home";
+        if (localStorage.getItem('type' === 'agent')) {
+            window.location.href = "/listpos";
         }
     }
 
@@ -35,7 +35,9 @@ export default class LoginForm extends Component {
               if (response.status === 200) {
                 localStorage.setItem('username', this.state.username);
                 localStorage.setItem('type', this.props.type);
-                window.location.href = "/home";
+                if (this.props.type === 'agent') {
+                    window.location.href = "/listpos";
+                }
             }
           } catch (error) {
             this.setState({

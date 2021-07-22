@@ -84,7 +84,7 @@ export default class LoginForm extends Component {
                     <div className="form-group login-control">
                         <label>Username</label>
                         <input className="form-control" value={this.state.username}
-                            onChange={this.handleUserName} placeholder="Enter email" />
+                            onChange={this.handleUserName} placeholder="Enter username" />
                     </div>
 
                     <div className="form-group login-control">

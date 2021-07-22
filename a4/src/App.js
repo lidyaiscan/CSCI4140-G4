@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './Home/Home'
 import POdetail from './POdetail/POdetail'
 import Header from './Header/Header';
+import MakeNewPo from './MakeNewPo/MakeNewPo'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path='/' component={Login} />
           <Route exact path='/home' component={Home} />
           <Route exact path='/podetail' component={POdetail} />
+          <Route exact path='/makenewpo' component={MakeNewPo} />
         </Switch>
       </Router>
     </div>

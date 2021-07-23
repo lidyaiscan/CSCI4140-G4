@@ -95,7 +95,7 @@ const clientGetPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
         return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
     }
 
-    const q = `SELECT POLinesG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4, POLinesG4.partNoG4, linePriceG4, POLinesG4.qtyG4, partNameG4 FROM POsG4 
+    const q = `SELECT POLinesG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4, POLinesG4.partNoG4, linePriceG4, PartsG4.currentPriceG4, POLinesG4.qtyG4 as POqtyG4, PartsG4.qtyG4 as partQtyG4, partNameG4 FROM POsG4 
     INNER JOIN StatusG4 ON POsG4.statusG4=StatusG4.statusNoG4 
     INNER JOIN ClientG4 ON POsG4.clientCompIdG4=ClientG4.clientCompIdG4 
     INNER JOIN POLinesG4 ON POsG4.poNoG4=POLinesG4.poNoG4
@@ -219,6 +219,61 @@ const clientGetPoSummaryG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+const clientGetPoAndClientG4 = (req, res) => new Promise((resolve, reject) => {
+    const clientCompIdG4 = req.params.clientCompIdG4
+    const poNoG4 = req.params.poNoG4
+
+    if (isNaN(clientCompIdG4) || isNaN(poNoG4)) {
+        return res.status(400).send('Bad Request - clientCompIdG4 and poNoG4 must be a number') // Return a 400 - Bad Request
+    }
+
+    const q = `SELECT POsG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4,moneyOwedG4, clientCityG4, datePOG4, statusDescriptionG4 FROM POsG4 
+    INNER JOIN StatusG4 ON POsG4.statusG4=StatusG4.statusNoG4 
+    INNER JOIN ClientG4 ON POsG4.clientCompIdG4=ClientG4.clientCompIdG4 
+    WHERE POsG4.clientCompIdG4=${clientCompIdG4} AND POsG4.poNoG4=${poNoG4}
+    GROUP BY POsG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4`;
+    const db = conn.getDB();
+    db.query(q, (err, data) => {
+
+        // Error with request
+        if (err) return reject(err);
+
+        // Request successful, data found
+        if (data.length) {
+            return res.status(200).send(data); // send entire data array
+        }
+
+        // Request successful, no data
+        return res.status(200).send([])
+
+    });
+});
+
+// Replenish the quantity of the specific Part specified as the partNoG4
+const agentCheckQTY = (req, res) => new Promise((resolve, reject) => {
+
+    const params = req.params;
+    const body = req.body;
+
+    // Check if the provided parameter is a valid number.
+    if (isNaN(params.PONoG4) ||
+        params.partNoG4 < 0) {
+        return res.status(400).send('Bad Request - partNoG4 must be positive numbers!') // Return a 400 - Bad Request
+    }
+
+    // Call a stored procedure to process the update transaction.
+    const q = `call PROC_CHECK_QTY_G4 (${params.PONoG4}, '${params.commandG4}');`;
+    const db = conn.getDB();
+    db.query(q,  (err, data) => {
+
+        // Error occurred with request
+        if (err) return reject(err);
+
+        // Send the process results to the requestor.
+        return res.send(data);
+    });
+});
+
 //This function creates a PO then create varying number of associated PO Lines in one transaction.
 const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
 
@@ -238,13 +293,13 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
         }
 
         try{
-            //(1) first, processed the new PO.  
+            //(1) first, processed the new PO.
             let newPoId = 0;
             const q = `call PROC_NEW_PO_G4(${clientIdG4});`;
             const db = conn.getDB();
             db.query(q,  (err, results) => {
 
-                if (err) { 
+                if (err) {
                     connection.rollback(function() {
                       throw err;
                     });
@@ -262,15 +317,15 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
                         }
 
                         //(2) next, process new PO Lines associated to the newly created PO above (Using the req.body).
-                        req.body.forEach(function(poLine) 
-                        { 
+                        req.body.forEach(function(poLine)
+                        {
                             console.log(poLine.partNoG4);
                             processPOLines(connection, newPoId, parseInt(poLine.partNoG4), parseInt(poLine.qtyG4));
-                        });    
+                        });
 
                         //Finalize the transaction
                         connection.commit(function(err) {
-                            if (err) { 
+                            if (err) {
                                 connection.rollback(function() {
                                 throw err;
                                 });
@@ -282,7 +337,7 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
 
                         res.send('The new PO and PO Lines are Successfully Created.');
 
-                    }        
+                    }
                 });
 
         // If errors, roll back.
@@ -294,7 +349,7 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
     });
 
     console.log('end');
- 
+
 });
 
 //This function call the PROC_NEW_POLINE_G4 stored procedure to create an individual PO LINE.
@@ -320,6 +375,9 @@ module.exports = {
     createPoG4,
     updatePoStatusG4,
     cancelPoG4,
+    clientGetPoSummaryG4,
+    clientGetPoAndClientG4,
+    agentCheckQTY,
     clientGetPoSummaryG4,
     createpowithdetails
 }

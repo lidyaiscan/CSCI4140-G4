@@ -50,6 +50,7 @@ BEGIN
         SELECT @COMMITPROMPT;
     ELSEIF(STRCMP(inReq, 'COMMIT') = 0) THEN
         COMMIT;
+        UPDATE POsG4 SET statusG4 = 6 WHERE poNoG4 = inPONo;
         SET @COMMITPROMPT = 2;
         SELECT @COMMITPROMPT;
     ELSEIF(STRCMP(inReq, 'CHECK') != 0) THEN

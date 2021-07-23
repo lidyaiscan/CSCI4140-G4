@@ -35,6 +35,8 @@ router.patch('/agent/parts/:partNoG4/price', partController.updatePartPriceByNoG
 router.patch('/agent/parts/:partNoG4/replenish', partController.replenishPartsByNoG4);
 router.patch('/agent/:clientCompIdG4', clientController.updateClient);
 router.patch('/agent/pos/status/:poNoG4', poController.updatePoStatusG4);
+router.get('/agent/pos/client/:clientCompIdG4/:poNoG4', poController.clientGetPoAndClientG4);
+router.get('/agent/pos/checkqty/:PONoG4/:commandG4', poController.agentCheckQTY);
 
 router.post('/authenticate/client', authenticationController.loginClientG4);
 router.post('/authenticate/agent', authenticationController.loginAgentG4);

@@ -106,7 +106,7 @@ export default class ProcessPO extends Component {
                     <ul>
                         <li>Company Name: {po.clientCompNameG4}</li>
                         <li>Company Location: {po.clientCityG4}</li>
-                        <li>Company's Money Owned: {po.moneyOwnedG4}</li>
+                        <li>Company's Money Owned: {po.moneyOwedG4}</li>
                         <li>Order Date: {po.datePOG4}</li>
                         <li>Order Status: {po.statusG4}</li>
                     </ul>

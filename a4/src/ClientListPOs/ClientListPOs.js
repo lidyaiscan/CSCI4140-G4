@@ -77,6 +77,10 @@ export default class ClientListPOs extends Component {
         window.location.href = "/client/podetail";
     }
 
+    createNewPoLink = () => {
+        window.location.href = '/client/create'
+    }
+
     //UI Layout
     render() {
 
@@ -126,6 +130,9 @@ export default class ClientListPOs extends Component {
                 <br />
                 <div id="output-values" className="median-values" >
                     <h3>Purchase Orders</h3>
+                <button className="btn btn-primary btn-block switch-button" onClick={this.createNewPoLink}>
+                    Create New
+                </button>
                     {order}
                 </div>
                 

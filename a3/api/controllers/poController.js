@@ -219,7 +219,7 @@ const clientGetPoSummaryG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
-//This function creates a PO then create PO Lines in one transaction.
+//This function creates a PO then create varying number of associated PO Lines in one transaction.
 const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
 
     var connection = conn.getDB();
@@ -238,9 +238,9 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
         }
 
         try{
-            //(1) first, processed PO.  
+            //(1) first, processed the new PO.  
             let newPoId = 0;
-            const q = `call PROC_NEW_PO(${clientIdG4});`;
+            const q = `call PROC_NEW_PO_G4(${clientIdG4});`;
             const db = conn.getDB();
             db.query(q,  (err, results) => {
 
@@ -249,9 +249,11 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
                       throw err;
                     });
                   }else{
+                        //Receive the newly created unique ID for POsG4 table.
                         newPoId =  (JSON.parse(JSON.stringify(results)))[0][0].NEW_ID;
-                        console.log('newPoId: ', newPoId);
+                        console.log('new Po Id: ', newPoId);
 
+                        //If the new PO Id is 0, something is wrong.
                         if(newPoId === 0){
                             connection.rollback(function() {
                                 console.log("PO not added.");
@@ -259,11 +261,11 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
                             });
                         }
 
-                        //(2) next, process PO Lines (uses req.body).
+                        //(2) next, process new PO Lines associated to the newly created PO above (Using the req.body).
                         req.body.forEach(function(poLine) 
                         { 
                             console.log(poLine.partNoG4);
-                            processLines(connection, newPoId, parseInt(poLine.partNoG4), parseInt(poLine.qtyG4));
+                            processPOLines(connection, newPoId, parseInt(poLine.partNoG4), parseInt(poLine.qtyG4));
                         });    
 
                         //Finalize the transaction
@@ -279,7 +281,7 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
                             /* End transaction */
                         });
 
-                        res.send('Successfully Processed.');
+                        res.send('The new PO and PO Lines are Successfully Created.');
 
                     }        
                 });
@@ -296,10 +298,11 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
  
 });
 
-function processLines(connection, inNewPoNoG4, inPartNoG4, inQtyG4){
-    console.log('processLines begin');
+//This function call the PROC_NEW_POLINE_G4 stored procedure to create an individual PO LINE.
+function processPOLines(connection, inNewPoNoG4, inPartNoG4, inQtyG4){
+    //console.log('processLines begin');
     console.log(inNewPoNoG4+" "+inPartNoG4+" "+inQtyG4);
-    const q = `call PROC_NEW_POLINE(${inNewPoNoG4}, ${inPartNoG4}, ${inQtyG4});`;
+    const q = `call PROC_NEW_POLINE_G4(${inNewPoNoG4}, ${inPartNoG4}, ${inQtyG4});`;
     connection.query(q,  (err, res) => {
       if (err) {
         connection.rollback(function() {
@@ -307,7 +310,7 @@ function processLines(connection, inNewPoNoG4, inPartNoG4, inQtyG4){
         });
       }
     })
-    console.log('processLines end');
+    //console.log('processLines end');
 }
 
 module.exports = {

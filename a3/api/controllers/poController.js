@@ -277,7 +277,6 @@ const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
                             }
 
                             console.log('Transaction Complete.');
-                            connection.end();
                             /* End transaction */
                         });
 

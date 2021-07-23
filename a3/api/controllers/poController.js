@@ -219,6 +219,97 @@ const clientGetPoSummaryG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+//This function creates a PO then create PO Lines in one transaction.
+const createpowithdetails = (req, res) => new Promise((resolve, reject) => {
+
+    var connection = conn.getDB();
+
+    /* Begin transaction */
+    connection.beginTransaction(function(err) {
+        if (err) { throw err; }
+
+        //parameters
+        let clientIdG4 = req.params.clientCompIdG4;
+        //note: po lines use req.body object directly.
+
+        // Check if the parameter provided is a valid number
+        if (isNaN(clientIdG4)) {
+            return res.status(400).send('Bad Request - clientCompIdG4 must be a number') // Return a 400 - Bad Request
+        }
+
+        try{
+            //(1) first, processed PO.  
+            let newPoId = 0;
+            const q = `call PROC_NEW_PO(${clientIdG4});`;
+            const db = conn.getDB();
+            db.query(q,  (err, results) => {
+
+                if (err) { 
+                    connection.rollback(function() {
+                      throw err;
+                    });
+                  }else{
+                        newPoId =  (JSON.parse(JSON.stringify(results)))[0][0].NEW_ID;
+                        console.log('newPoId: ', newPoId);
+
+                        if(newPoId === 0){
+                            connection.rollback(function() {
+                                console.log("PO not added.");
+                                throw err;
+                            });
+                        }
+
+                        //(2) next, process PO Lines (uses req.body).
+                        req.body.forEach(function(poLine) 
+                        { 
+                            console.log(poLine.partNoG4);
+                            processLines(connection, newPoId, parseInt(poLine.partNoG4), parseInt(poLine.qtyG4));
+                        });    
+
+                        //Finalize the transaction
+                        connection.commit(function(err) {
+                            if (err) { 
+                                connection.rollback(function() {
+                                throw err;
+                                });
+                            }
+
+                            console.log('Transaction Complete.');
+                            connection.end();
+                            /* End transaction */
+                        });
+
+                        res.send('Successfully Processed.');
+
+                    }        
+                });
+
+        // If errors, roll back.
+        }catch(e){
+            /* rolled back */
+            console.log("Error happened. Rolled Back.");
+            res.send('Error happened. Rolled Back.');
+        }
+    });
+
+    console.log('end');
+ 
+});
+
+function processLines(connection, inNewPoNoG4, inPartNoG4, inQtyG4){
+    console.log('processLines begin');
+    console.log(inNewPoNoG4+" "+inPartNoG4+" "+inQtyG4);
+    const q = `call PROC_NEW_POLINE(${inNewPoNoG4}, ${inPartNoG4}, ${inQtyG4});`;
+    connection.query(q,  (err, res) => {
+      if (err) {
+        connection.rollback(function() {
+          throw err;
+        });
+      }
+    })
+    console.log('processLines end');
+}
+
 module.exports = {
     getPosG4,
     getPoByNoG4,
@@ -227,5 +318,6 @@ module.exports = {
     createPoG4,
     updatePoStatusG4,
     cancelPoG4,
-    clientGetPoSummaryG4
+    clientGetPoSummaryG4,
+    createpowithdetails
 }

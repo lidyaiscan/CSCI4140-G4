@@ -21,9 +21,9 @@ router.get('/client/pos/:clientCompIdG4', poController.clientGetPosG4);
 router.get('/client/pos/:clientCompIdG4/:poNoG4', poController.clientGetPoByNoG4);
 //Added at A4
 router.get('/client/pos/summary/:clientCompIdG4/:poNoG4', poController.clientGetPoSummaryG4);
-
 router.patch('/client/createPo/:clientCompIdG4', poController.createPoG4);
-
+//Added at A4 (create a PO with varying number of PO Lines in one transaction)
+router.patch('/client/createpowithdetails/:clientCompIdG4', poController.createpowithdetails);
 // additional feature
 router.patch('/client/payment/:clientCompIdG4/:poNoG4', paymentController.makePaymentByPoNoAndClientCompIdG4);
 

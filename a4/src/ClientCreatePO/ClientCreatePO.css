@@ -1,0 +1,32 @@
+.create-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.create-btn-container {
+    display: flex;
+    flex-direction:column;
+    width: 30%;
+}
+
+.addPartBtn {
+    margin-bottom: 20px;
+}
+
+.create-statusText {
+    margin-top: 20px;
+}
+
+.create-list-container {
+    margin-bottom: 20px;
+}
+
+.create-clear-btn {
+    margin-left: 20px;
+}
+
+.create-po-controls {
+
+}

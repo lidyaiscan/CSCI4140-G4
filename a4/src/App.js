@@ -8,6 +8,7 @@ import ListPOs from './ListPOs/ListPOs'
 import ClientListPOs from './ClientListPOs/ClientListPOs'
 import POdetail from './POdetail/POdetail'
 import Header from './Header/Header';
+import ProcessPO from "./ProcessPO/ProcessPO";
 import MakeNewPo from './MakeNewPo/MakeNewPo'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/listpos' component={ListPOs} />
           <Route exact path='/client/listpos' component={ClientListPOs} />
           <Route exact path='/podetail' component={POdetail} />
+          <Route exact path='/processpo' component={ProcessPO} />
           <Route exact path='/makenewpo' component={MakeNewPo} />
         </Switch>
       </Router>

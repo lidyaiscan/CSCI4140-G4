@@ -7,6 +7,7 @@ import Home from './Home/Home'
 import ListPOs from './ListPOs/ListPOs'
 import ClientListPOs from './ClientListPOs/ClientListPOs'
 import POdetail from './POdetail/POdetail'
+import ClientPOdetail from './ClientPOdetail/ClientPOdetail'
 import Header from './Header/Header';
 import ProcessPO from "./ProcessPO/ProcessPO";
 import MakeNewPo from './MakeNewPo/MakeNewPo'
@@ -23,8 +24,9 @@ function App() {
           <Route exact path='/' component={Login} />
           <Route exact path='/home' component={Home} />
           <Route exact path='/listpos' component={ListPOs} />
-          <Route exact path='/client/listpos' component={ClientListPOs} />
           <Route exact path='/podetail' component={POdetail} />
+          <Route exact path='/client/listpos' component={ClientListPOs} />
+          <Route exact path='/client/podetail' component={ClientPOdetail} />          
           <Route exact path='/processpo' component={ProcessPO} />
           <Route exact path='/makenewpo' component={MakeNewPo} />
         </Switch>

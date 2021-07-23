@@ -14,8 +14,12 @@ export default class LoginForm extends Component {
     componentDidMount() {
         // TO-DO: Check for type and redirect to the proper page based on that
 
-        if (localStorage.getItem('type')) {
-            window.location.href = "/home";
+        const type = localStorage.getItem('type');
+
+        if (type === 'agent') {
+            window.location.href = "/listpos";
+        } else if (type === 'client') {
+            window.location.href = '/client/listpos'
         }
     }
 
@@ -35,7 +39,14 @@ export default class LoginForm extends Component {
               if (response.status === 200) {
                 localStorage.setItem('username', this.state.username);
                 localStorage.setItem('type', this.props.type);
-                window.location.href = "/home";
+                // localStorage.setItem('id')
+                if (this.props.type === 'agent') {
+                    window.location.href = "/listpos";
+                }
+                if (this.props.type === 'client') {
+                    localStorage.setItem('id', response.data[0].clientCompIdG4);
+                    window.location.href = "/client/listpos";
+                }
             }
           } catch (error) {
             this.setState({
@@ -77,7 +88,7 @@ export default class LoginForm extends Component {
                     <div className="form-group login-control">
                         <label>Username</label>
                         <input className="form-control" value={this.state.username}
-                            onChange={this.handleUserName} placeholder="Enter email" />
+                            onChange={this.handleUserName} placeholder="Enter username" />
                     </div>
 
                     <div className="form-group login-control">

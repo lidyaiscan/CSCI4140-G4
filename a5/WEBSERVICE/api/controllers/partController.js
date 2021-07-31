@@ -121,10 +121,38 @@ const replenishPartsByNoG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+// Added at A5
+// Update Price and Quantity of a specified Part
+const updatePartPriceQuantityByNoG4 = (req, res) => new Promise((resolve, reject) => {
+
+    const body = req && req.body;
+    const params = req && req.params;
+
+    // Check if the provided parameter is a valid number.
+    if (isNaN(params.partNoG4) || isNaN(body.currentPriceG4) || isNaN(body.qtyG4) ||
+        params.partNoG4 < 0 || body.currentPriceG4 < 0 || body.qtyG4 < 0) {
+        return res.status(400).send('Bad Request - partNoG4, currentPriceG4, qtyG4 must be positive numbers') // Return a 400 - Bad Request
+    }
+
+    // Call a stored procedure to process the update transaction.
+    const q = `call PROC_PART_PRICE_QTY_UPDATE_G4(${params.partNoG4}, ${body.currentPriceG4}, ${body.qtyG4});`;
+    const db = conn.getDB();
+    db.query(q,  (err, data) => {
+
+        // Error occured with request
+        if (err) return reject(err);
+
+        // Send the process results to the requestor.
+        return res.send(data);
+    });
+});
+
+
 module.exports = {    
     getPartsG4,
     getPartByNoG4,
     updatePartByNoG4,
     updatePartPriceByNoG4,
-    replenishPartsByNoG4
+    replenishPartsByNoG4,
+    updatePartPriceQuantityByNoG4
 }

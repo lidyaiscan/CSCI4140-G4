@@ -1,0 +1,23 @@
+.update-container {
+    margin: auto;
+    margin-top: 25px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.update-btn-status {
+    display: flex;
+    flex-direction:column;
+    width: 30%;
+}
+
+.update-statusText {
+    margin-top: 20px;
+}
+
+.update-list-container {
+    margin-bottom: 20px;
+}
+

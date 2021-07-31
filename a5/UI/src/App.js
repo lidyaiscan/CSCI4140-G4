@@ -12,6 +12,7 @@ import Header from './Header/Header';
 import ProcessPO from "./ProcessPO/ProcessPO";
 import MakeNewPo from './MakeNewPo/MakeNewPo'
 import ClientCreatePO from './ClientCreatePO/ClientCreatePO';
+import UpdatePart from './UpdatePart/UpdatePart';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path='/client/podetail' component={ClientPOdetail} />          
           <Route exact path='/processpo' component={ProcessPO} />
           <Route exact path='/makenewpo' component={MakeNewPo} />
+          <Route exact path='/updatepart' component={UpdatePart} />
         </Switch>
       </Router>
     </div>

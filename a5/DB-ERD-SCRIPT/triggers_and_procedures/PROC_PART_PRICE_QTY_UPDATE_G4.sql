@@ -19,7 +19,7 @@ BEGIN
     ELSEIF (SIGN(inPartNoG4) < 0 OR SIGN(inQtyG4) < 0) THEN
 		-- USER DEFINED ERROR (PART NUM OR QTY CANNOT BE LESS THAN ZERO).
 		SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT='QTY and minQTY cannot be less than zero.';
+        SET MESSAGE_TEXT='PartNo and QTY cannot be less than zero.';
     ELSE
     -- (1) UPDATE THE PRICE AND QUANTITY INFORMATION OF THE PART IN THE PARTSG4 TABLE.
     UPDATE PartsG4 SET currentPriceG4=inCurrentPriceG4, qtyG4=inQtyG4 WHERE partNoG4=inPartNoG4;

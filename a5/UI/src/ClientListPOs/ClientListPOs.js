@@ -80,6 +80,10 @@ export default class ClientListPOs extends Component {
     createNewPoLink = () => {
         window.location.href = '/client/create'
     }
+    
+    viewAllProducts = () => {
+        window.location.href = '/listparts'
+    } 
 
     //UI Layout
     render() {
@@ -134,6 +138,9 @@ export default class ClientListPOs extends Component {
                     Create New
                 </button>
                     {order}
+                <button className="btn btn-primary btn-block switch-button" onClick={this.viewAllProducts}>
+                    View All Products
+                </button>
                 </div>
                 
                 <br />

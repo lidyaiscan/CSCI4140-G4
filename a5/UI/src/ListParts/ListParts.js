@@ -7,7 +7,7 @@ export default class ListParts extends Component {
     constructor() {
         super();
         this.state = {clientId:'', parts: [] }; //if clientId is empty display login error
-        this.getPOs = this.getPOs.bind(this);
+        this.getParts = this.getParts.bind(this);
     }
 
     //Make the Web Service Call
@@ -29,7 +29,7 @@ export default class ListParts extends Component {
         console.log(parts);
         let allParts = this.state.parts.map(part => {
                 return(
-                    <div id = "products-details">
+                    <div className="parts">
                             <h4>Part Number: {part.partNoG4}</h4>
                             <p>Part Name: {part.partNameG4}</p>
                             <p>Part Description: {part.partDescriptionG4}</p>
@@ -37,7 +37,7 @@ export default class ListParts extends Component {
                             <p>Min Ordered Qty: {part.minQtyG4}</p>
                             <p>Part Description: {part.partDescriptionG4}</p>
                             <p>Reorder: {part.reorderG4} (if reorder is 1, it means the product is not avaiable at this point)</p>
-                            <label for="quantity">Quantity (between {part.minQtyG4} and {part.qtyG4})</label>          
+                            <label for="quantity">Quantity can be Ordered: between {part.minQtyG4} and {part.qtyG4}</label>          
                     </div>
          )});    
 

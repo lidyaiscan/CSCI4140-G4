@@ -95,6 +95,10 @@ export default class ProcessPO extends Component {
         });
     }
 
+    viewAllProducts = () => {
+        window.location.href = '/listparts'
+    } 
+
     //UI Layout
     render() {
 
@@ -178,6 +182,9 @@ export default class ProcessPO extends Component {
                     {details}
                     <h3>Actions</h3>
                     {window}
+                    <button className="btn btn-primary btn-block switch-button"  onClick={this.viewAllProducts}>
+                        View All Products
+                    </button>
                 </div>
             </div>
         );

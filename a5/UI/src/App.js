@@ -13,6 +13,7 @@ import ProcessPO from "./ProcessPO/ProcessPO";
 import MakeNewPo from './MakeNewPo/MakeNewPo'
 import ClientCreatePO from './ClientCreatePO/ClientCreatePO';
 import UpdatePart from './UpdatePart/UpdatePart';
+import ListParts from './ListPars/ListParts';
 
 function App() {
   return (

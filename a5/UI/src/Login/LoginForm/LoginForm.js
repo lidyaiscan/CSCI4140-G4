@@ -17,7 +17,7 @@ export default class LoginForm extends Component {
         const type = localStorage.getItem('type');
 
         if (type === 'agent') {
-            window.location.href = "/processpo";
+            window.location.href = "/agent/listpos";
         } else if (type === 'client') {
             window.location.href = '/client/listpos'
         }
@@ -41,7 +41,7 @@ export default class LoginForm extends Component {
                 localStorage.setItem('type', this.props.type);
                 // localStorage.setItem('id')
                 if (this.props.type === 'agent') {
-                    window.location.href = "/processpo";
+                    window.location.href = "/agent/listpos";
                 }
                 if (this.props.type === 'client') {
                     localStorage.setItem('id', response.data[0].clientCompIdG4);

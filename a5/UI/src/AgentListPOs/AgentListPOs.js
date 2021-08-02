@@ -61,7 +61,7 @@ export default class AgentListPOs extends Component {
         localStorage.setItem('poNoG4', poNoG4);
         window.location.href = "/agent/podetail";
     }
-    startProcessPOEnh= (poNoG4) => {
+    startProcessPO= (poNoG4) => {
         this.state.statusMsg = '';
         localStorage.setItem('poNoG4', poNoG4);
         window.location.href = "/agent/processpo";

@@ -399,6 +399,69 @@ const agentGetPoSummaryG4 = (req, res) => new Promise((resolve, reject) => {
     });
 });
 
+// Added at a5
+// Return specific Purchase Order by poNo with the Parts info
+const agentGetPoAndPartsByNoG4 = (req, res) => new Promise((resolve, reject) => {
+    const poNoG4 = req.params.poNoG4
+
+    // Check if the parameters provided are valid numbers
+    if (isNaN(poNoG4)) {
+        return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
+    }
+
+    const q = `SELECT POLinesG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4, POLinesG4.partNoG4, linePriceG4, PartsG4.currentPriceG4, POLinesG4.qtyG4 as POqtyG4, PartsG4.qtyG4 as partQtyG4, partNameG4 FROM POsG4 
+    INNER JOIN StatusG4 ON POsG4.statusG4=StatusG4.statusNoG4 
+    INNER JOIN ClientG4 ON POsG4.clientCompIdG4=ClientG4.clientCompIdG4 
+    INNER JOIN POLinesG4 ON POsG4.poNoG4=POLinesG4.poNoG4
+    INNER JOIN PartsG4 ON POLinesG4.partNoG4 = PartsG4.partNoG4 
+    WHERE POLinesG4.poNoG4 = ${poNoG4}`;
+    const db = conn.getDB();
+    db.query(q, (err, data) => {
+
+        // Error with request
+        if (err) return reject(err);
+
+        // Request successful, data found
+        if (data.length) {
+            return res.status(200).send(data);
+        }
+        
+        // Request successful, but no data
+        return res.status(200).send([]);
+    });
+});
+
+//Added at A5
+//Return PO and Client information based on the given PO Id, as a company agent has access (permission to access) to any client(s).
+const agentGetPoAndClientG4 = (req, res) => new Promise((resolve, reject) => {
+    const poNoG4 = req.params.poNoG4
+
+    if ( isNaN(poNoG4)) {
+        return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
+    }
+
+    const q = `SELECT POsG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4,moneyOwedG4, clientCityG4, datePOG4, statusDescriptionG4 FROM POsG4 
+    INNER JOIN StatusG4 ON POsG4.statusG4=StatusG4.statusNoG4 
+    INNER JOIN ClientG4 ON POsG4.clientCompIdG4=ClientG4.clientCompIdG4 
+    WHERE POsG4.poNoG4=${poNoG4}
+    GROUP BY POsG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4`;
+    const db = conn.getDB();
+    db.query(q, (err, data) => {
+
+        // Error with request
+        if (err) return reject(err);
+
+        // Request successful, data found
+        if (data.length) {
+            return res.status(200).send(data); // send entire data array
+        }
+
+        // Request successful, no data
+        return res.status(200).send([])
+
+    });
+});
+
 module.exports = {
     getPosG4,
     getPoByNoG4,
@@ -412,5 +475,7 @@ module.exports = {
     agentCheckQTY,
     clientGetPoSummaryG4,
     createpowithdetails,
-    agentGetPoSummaryG4
+    agentGetPoSummaryG4,
+    agentGetPoAndPartsByNoG4,
+    agentGetPoAndClientG4
 }

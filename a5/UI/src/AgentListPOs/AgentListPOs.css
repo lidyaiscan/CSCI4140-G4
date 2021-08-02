@@ -1,0 +1,67 @@
+.main {
+  text-align: center;
+}
+
+.client-money-owed{
+  margin: auto;
+  width: 450px;
+  background-color: rgb(236, 190, 238);
+  padding: 15px;    
+}
+
+.search-input{
+  margin: auto;
+  width: 450px;
+  background-color: rgb(194, 245, 245);
+  padding: 15px;    
+}
+
+.client-info {
+  width: 450px;
+  height: max-content;
+  align-self: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.order {
+  width: 450px;
+  height: max-content;
+  padding: 20px;
+  border: 1px solid rgb(104, 68, 44);
+  align-self: center;
+  background-color: rgb(190, 236, 248);
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.input-form {
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+  margin: auto;
+}
+
+.error{
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  border: 1px solid palevioletred;
+  align-self: center;
+  background-color: palevioletred;
+  margin: auto;
+}
+
+.block-gap{
+  margin-right:10px;
+}
+
+.block-gap-left{
+  margin-left:10px;
+}
+
+.warning{
+  color: red;
+  margin-left:10px;
+}

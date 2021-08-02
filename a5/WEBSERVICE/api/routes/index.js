@@ -42,5 +42,6 @@ router.post('/authenticate/client', authenticationController.loginClientG4);
 router.post('/authenticate/agent', authenticationController.loginAgentG4);
 //Added at A5
 router.patch('/agent/parts/:partNoG4/priceqty', partController.updatePartPriceQuantityByNoG4);
+router.get('/agent/pos/summary/:poNoG4', poController.agentGetPoSummaryG4);
 
 module.exports = router;

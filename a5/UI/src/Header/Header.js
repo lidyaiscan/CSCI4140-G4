@@ -7,6 +7,18 @@ export default class Header extends Component {
         this.logout = this.logout.bind(this);
     }
 
+    isAgent = () => {
+        if (localStorage.getItem('type')==='agent') {
+            return true;
+        }
+        return false
+    }
+
+    gotoListAllPOs = () => {
+        window.location.href = `/${localStorage.getItem('type')}/listpos`;
+    }
+
+
     logout = () => {
         localStorage.clear()
         window.location.href = "/";
@@ -20,6 +32,17 @@ export default class Header extends Component {
     }
 
     render() {
+        const clientMenus = (
+            <>
+            </>
+        )
+        const agentMenus = (            
+            <>
+            <button className="btn btn-primary btn-block" onClick={this.gotoListAllPOs}>
+                View All POs
+            </button>
+            </>
+        )
         const logoutBtn = (
             <div className="logout-button-container">
                 <button className="btn btn-primary btn-block logout-button" onClick={this.logout}>
@@ -30,6 +53,7 @@ export default class Header extends Component {
         return (
             <>
             <div className="header-title-container"><h1>CSCI4140 G4 A4</h1></div>
+            {this.isAgent() ?  agentMenus : clientMenus}
             {this.isLoggedIn() ?  logoutBtn : null}
 
             </>

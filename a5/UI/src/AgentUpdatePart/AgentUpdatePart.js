@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import Axios from 'axios';
-import './UpdatePart.css'
+import './AgentUpdatePart.css'
 
 export default class UpdatePart extends Component {
 
@@ -10,7 +10,7 @@ export default class UpdatePart extends Component {
         this.state = { 
             username: localStorage.getItem('username'), 
             usertype: localStorage.getItem('type'), 
-            selPartNoG4: '1', //This will be updated when integraion.
+            selPartNoG4: localStorage.getItem('partNoG4'),
             selPart: [],
             toQty: '',
             toPrice: '',
@@ -40,7 +40,7 @@ export default class UpdatePart extends Component {
 
     //Move to the parts List
     goToList= (poNoG4) => {
-        window.location.href = "/partslist";
+        window.location.href = "/agent/listparts";
     }
 
     //Set the updated quantity to the state variable

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../Header/Header.css';
 
 export default class Header extends Component {
 
@@ -41,10 +42,13 @@ export default class Header extends Component {
         )
         const agentMenus = (            
             <>
-            <button className="btn btn-primary btn-block" onClick={this.gotoListAllParts}>
+            <button className="btn greeting">
+                Logged Agent: {localStorage.getItem('username')}
+            </button>
+            <button className="btn btn-primary btn-block appmenu" onClick={this.gotoListAllParts}>
                 List Parts
             </button>
-            <button className="btn btn-primary btn-block" onClick={this.gotoListAllPOs}>
+            <button className="btn btn-primary btn-block appmenu" onClick={this.gotoListAllPOs}>
                 List POs
             </button>
             </>

@@ -9,6 +9,7 @@ export default class AgentListPOs extends Component {
         this.state = {agentIdG4:localStorage.getItem('id'), agentName: localStorage.getItem('username'), poNoG4: '', posG4: [], statusMsg:'' };
         this.getPOsG4 = this.getPOsG4.bind(this);
         this.getSpecificPOG4 = this.getSpecificPOG4.bind(this);
+        this.getPOsG4();
     }
 
     //** Make the Web Service Calls **//

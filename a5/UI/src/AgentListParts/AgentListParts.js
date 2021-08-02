@@ -10,6 +10,7 @@ export default class ListParts extends Component {
                     partsG4: [], partNoG4: '', statusMsgG4:'' };
         this.getPartsG4 = this.getPartsG4.bind(this);
         this.getSpecificPartG4 = this.getSpecificPartG4.bind(this);
+        this.getPartsG4();
     }
 
     //Make the Web Service Call
@@ -53,6 +54,13 @@ export default class ListParts extends Component {
         this.setState({ partNoG4: event.target.value });
     }
 
+    //Move to update Part's price and Qty
+    goToUpdatePartG4 = (selPartNoG4) => {
+        this.state.statusMsgG4 = '';
+        localStorage.setItem('partNoG4', selPartNoG4);
+        window.location.href = "/agent/updatepart";
+    }
+
     render() {
 
         // List all the parts 
@@ -62,11 +70,15 @@ export default class ListParts extends Component {
                             <h4>Part Number: {part.partNoG4}</h4>
                             <p>Part Name: {part.partNameG4}</p>
                             <p>Part Description: {part.partDescriptionG4}</p>
-                            <p>Price: {part.currentPriceG4}</p>
-                            <p>Min Ordered Qty: {part.minQtyG4}</p>
-                            <p>Part Description: {part.partDescriptionG4}</p>
-                            <p>Reorder: {part.reorderG4} (if reorder is 1, it means the product is not avaiable at this point)</p>
-                            <label for="quantity">Quantity can be Ordered: between {part.minQtyG4} and {part.qtyG4}</label>          
+                            <p>Unit Price: ${part.currentPriceG4}</p>
+                            <p>Quantity on Hand (Stock): {part.qtyG4}</p>
+                            <p>Min. Qty for Reorder: {part.minQtyG4}</p>                                      
+                            <p>Reorder Needed? {part.reorderG4===1?'YES':'NO'} (if yes, the product is not available at this point)</p>
+                            <label for="quantity">Quantity can be ordered: {part.qtyG4}</label> 
+                            <br /><br /> 
+                            <button className="btn btn-primary btn-block block-gap" onClick={() => this.goToUpdatePartG4(part.partNoG4)}>
+                                Update Part Price and Qty
+                            </button>        
                     </div>
          )});    
 
@@ -80,7 +92,7 @@ export default class ListParts extends Component {
                         <h5>Search</h5>
                         <div className="form-group ">
                             Display all, or, Search by part no.
-                            <input type="text" className="form-control" value={this.state.partNoG4} onChange={this.handlePartIdG4} placeholder="Enter Part No." />
+                            <input type="text" className="form-control" value={this.state.partNoG4} onChange={this.handlePartIdG4} placeholder="Enter Part Number" />
 
                             <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getPartsG4()}>
                                 Display All

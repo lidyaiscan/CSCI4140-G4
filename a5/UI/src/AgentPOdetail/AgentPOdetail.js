@@ -95,8 +95,7 @@ export default class AgentPOdetail extends Component {
             <div>
                 <br />
                 <div id="client-info" className="median-values" >
-                    <h3>Hello, Agent <i>{this.state.agentName}</i></h3>    
-                    <h5>Below is the details of Purchase Order (No. {this.state.poIdG4}) submitted by {this.state.clientInfoG4.clientCompNameG4}</h5>
+                    <h5>The detail of Purchase Order (No. {this.state.poIdG4}) submitted by {this.state.clientInfoG4.clientCompNameG4}</h5>
                     <ul>
                         <li>Client Name: {this.state.clientInfoG4.clientCompNameG4}</li>
                         <li>City: {this.state.clientInfoG4.clientCityG4}</li>

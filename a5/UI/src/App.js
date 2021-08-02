@@ -13,7 +13,7 @@ import AgentProcessPO from "./AgentProcessPO/AgentProcessPO";
 import MakeNewPo from './MakeNewPo/MakeNewPo'
 import ClientCreatePO from './ClientCreatePO/ClientCreatePO';
 import AgentUpdatePart from './AgentUpdatePart/AgentUpdatePart';
-import ListParts from './ListParts/ListParts';
+import ClientListParts from './ClientListParts/ClientListParts';
 import AgentListPOs from './AgentListPOs/AgentListPOs';
 import AgentPOdetail from './AgentPOdetail/AgentPOdetail';
 import AgentListParts from './AgentListParts/AgentListParts';
@@ -38,7 +38,7 @@ function App() {
           <Route exact path='/agent/podetail' component={AgentPOdetail} />          
           <Route exact path='/agent/processpo' component={AgentProcessPO} /> 
           <Route exact path='/makenewpo' component={MakeNewPo} />          
-          <Route exact path='/client/listparts' component={ListParts} />
+          <Route exact path='/client/listparts' component={ClientListParts} />
           <Route exact path='/agent/listparts' component={AgentListParts} />
           <Route exact path='/agent/updatepart' component={AgentUpdatePart} />
         </Switch>

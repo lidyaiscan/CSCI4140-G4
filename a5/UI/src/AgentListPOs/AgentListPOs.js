@@ -18,11 +18,11 @@ export default class AgentListPOs extends Component {
     getPOsG4 = () => {
 
         //Get the POs
-        let all_pos = '/agent/pos/';    
+        let all_pos = '/agent/posaggr';    
         
         Axios.get(all_pos).then((response) => {
             if(response.data != null){
-                this.setState({posG4: response.data, statusMsg:'' });
+                this.setState({posG4: response.data, poNoG4:'', statusMsg:'' });
             }
         }).catch((err) => {
             console.log(err);
@@ -76,7 +76,7 @@ export default class AgentListPOs extends Component {
         let order = this.state.posG4?.map((po, index)=>{
         return(
             <div className="order" key={index}>
-            <b>Purchase Order {po.poNoG4}</b>
+            <b>Purchase Order</b> (No. {po.poNoG4})
             <ul>
                 <li>Client Company: {po.clientCompNameG4}</li>
                 <li>Order Status: {po.statusDescriptionG4}</li>

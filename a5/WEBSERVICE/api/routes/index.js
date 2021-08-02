@@ -45,5 +45,6 @@ router.patch('/agent/parts/:partNoG4/priceqty', partController.updatePartPriceQu
 router.get('/agent/pos/summary/:poNoG4', poController.agentGetPoSummaryG4);
 router.get('/agent/poparts/:poNoG4', poController.agentGetPoAndPartsByNoG4);
 router.get('/agent/pos/client/:poNoG4', poController.agentGetPoAndClientG4);
+router.get('/agent/posaggr', poController.agentGetSummaryPosG4);
 
 module.exports = router;

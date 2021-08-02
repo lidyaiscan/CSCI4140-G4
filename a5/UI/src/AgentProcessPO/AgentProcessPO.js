@@ -7,14 +7,15 @@ export default class AgentProcessPO extends Component {
     constructor() {
         super();
         this.state = {agentIdG4:localStorage.getItem('id'), agentName: localStorage.getItem('username'), 
-                        poIdG4:localStorage.getItem('poNoG4'), clientIdG4:'', clientInfoG4:{}, poG4: [], polinesG4: [] };
+                        poIdG4:localStorage.getItem('poNoG4'), clientIdG4:'', clientInfoG4:{}, poG4: [], polinesG4: [], statusMsgG4:''};
         this.getPOdetailsG4();
     }
 
     //** Make the Web Service Calls **//
     //Get the PO Details and PO Summary
     getPOdetailsG4 = () => {
-
+        this.state.statusMsgG4='';
+        
         //Get the PO Details
         let po_lines = '/agent/poparts/'+this.state.poIdG4;       
         Axios.get(po_lines).then((response) => {
@@ -41,7 +42,8 @@ export default class AgentProcessPO extends Component {
                                 this.setState({clientInfoG4: response.data });
                             }
                         }).catch((err) => {
-                            alert(err);
+                            console.log(err);
+                            this.state.statusMsgG4 = "Error Occurred";
                         });
 
                         // Start transaction for checking quantity
@@ -51,28 +53,33 @@ export default class AgentProcessPO extends Component {
                                 this.setState({commitPrompt: response.data[0] });
                             }
                         }).catch((err) => {
-                            alert(err);
+                            console.log(err);
+                            this.state.statusMsgG4 = "Error Occurred";
                         });
                         
                     }
                 }).catch((err) => {
-                    alert(err);
+                    console.log(err);
+                    this.state.statusMsgG4 = "Error Occurred";
                 });
 
             }
         }).catch((err) => {
-            alert(err);
+            console.log(err);
+            this.state.statusMsgG4 = "Error Occurred";
         });
     }
 
     //Go back to the PO List
     goToPOListUIG4 = () =>{
+        this.state.statusMsgG4='';
         localStorage.setItem('poNoG4', '');
         window.location.href = "/agent/listpos";
     }
 
     //Processing Functions
     cancel = (event) => {
+        this.state.statusMsgG4='';
         // start transaction for checking quantity
         let qty_check = '/agent/pos/checkqty/'+this.state.poIdG4 +'/ROLLBACK';
         Axios.get(qty_check).then((response) => {
@@ -80,11 +87,13 @@ export default class AgentProcessPO extends Component {
                 window.location.reload();
             }
         }).catch((err) => {
-            alert(err);
+            console.log(err);
+            this.state.statusMsgG4 = "Error Occurred";
         });
     }
 
     commit = (event) => {
+        this.state.statusMsgG4='';
         // start transaction for checking quantity
         let qty_check = '/agent/pos/checkqty/'+this.state.poIdG4 +'/COMMIT';
         Axios.get(qty_check).then((response) => {
@@ -92,7 +101,8 @@ export default class AgentProcessPO extends Component {
                 window.location.reload();
             }
         }).catch((err) => {
-            alert(err);
+            console.log(err);
+            this.state.statusMsgG4 = "Error Occurred";
         });
     }
 
@@ -137,23 +147,26 @@ export default class AgentProcessPO extends Component {
                     <ul>
                         <li>Company Name: {po.clientCompNameG4}</li>
                         <li>Company Location: {po.clientCityG4}</li>
-                        <li>Company's Money Owed: {po.moneyOwedG4}</li>
+                        <li>Company's Money Owed: ${po.moneyOwedG4}</li>
                         <li>Order Date: {po.datePOG4}</li>
-                        <li>Order Status: {po.statusG4}</li>
+                        <li>Order Status: {po.statusDescriptionG4}</li>
                     </ul>
                 </div>
             )});
 
         //PO line detail Boxes
         let linesDetail = this.state.polinesG4?.map((pl, index)=>{
+
             return(
                 <div className="order-detail" key={index}>
-                    <b>Ordered Item (PO Line ID: {pl.partNoG4})</b>
+                    <b>Ordered Item (Line ID: {pl.lineNoG4})</b>
                     <ul>
-                        <li>Part Name: {pl.partNameG4}</li>
-                        <li>Quantity In Stock: {pl.partQtyG4}</li>
-                        <li>Current Unit Price: ${pl.currentPriceG4}</li>
+                        <li>Part Name: {pl.partNameG4} (Part No: {pl.partNoG4})</li>
+                        <li>Part Quantity In Stock: {pl.partQtyG4}</li>
+                        <li>Part Current Unit Price: ${pl.currentPriceG4}</li>
                         <li>Order Quantity: {pl.POqtyG4}</li>
+                        <li>Order Part Unit Price: ${pl.linePartUnitPrice}</li>
+                        <li>Order Line Total Cost: ${pl.linePriceG4}</li>
                         <li>Current Status: {pl.statusDescriptionG4}</li>
                         <li>Submitted Date/Time: {pl.datePOG4}</li>
                     </ul>
@@ -164,9 +177,8 @@ export default class AgentProcessPO extends Component {
         return (
             <div>
                 <br />
-                <div id="client-info" className="median-values" >
-                    <h4>Hello, Agent <i>{this.state.agentName}</i></h4>    
-                    <h3>Processing the Purchase Order (No. {this.state.poIdG4}) submitted by {this.state.clientInfoG4.clientCompNameG4}</h3>                
+                <div id="client-info" className="median-values" >    
+                    <h3>Processing the Purchase Order (No. {this.state.poIdG4}) of client {this.state.clientInfoG4.clientCompNameG4}</h3>                
                     <ul>
                         <li>Client Name: {this.state.clientInfoG4.clientCompNameG4}</li>
                         <li>City: {this.state.clientInfoG4.clientCityG4}</li>
@@ -178,6 +190,7 @@ export default class AgentProcessPO extends Component {
                     <h3>Processing Info and Actions</h3>
                     <br />
                     {window}
+                    <div className="warning">{this.state.statusMsgG4}</div>
                     <br />
                 </div>
                 <hr/>

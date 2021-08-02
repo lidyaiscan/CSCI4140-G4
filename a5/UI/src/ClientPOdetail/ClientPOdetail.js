@@ -82,7 +82,7 @@ export default class ClientPOdetail extends Component {
             <div className="order-detail" key={index}>
                 <b>Part Name: {pl.partNameG4}</b> (PO Line No. {pl.partNoG4}, Part No. {pl.partNoG4})
                 <ul>
-                    <li>Quantity: {pl.qtyG4}</li>
+                    <li>Quantity: {pl.POqtyG4}</li>
                     <li>Price: ${pl.linePriceG4}</li>
                     <li>Current Status: {pl.statusDescriptionG4}</li>
                     <li>Submitted (Date/Time): {pl.datePOG4}</li>
@@ -95,18 +95,25 @@ export default class ClientPOdetail extends Component {
             <div>
                 <br />
                 <div id="client-info" className="median-values" >
-                    <h3>Details of PO No. {this.state.poIdG4} of Client [{this.state.clientInfoG4.clientCompNameG4}]</h3>
+                    <h5>The detail of Purchase Order (No. {this.state.poIdG4})</h5>
                     <ul>
+                        <li>Client Name: {this.state.clientInfoG4.clientCompNameG4}</li>
                         <li>City: {this.state.clientInfoG4.clientCityG4}</li>
-                        <li>Money Owing: ${this.state.clientInfoG4.moneyOwedG4}</li>                   
-                    </ul>
+                        <li>Client Money Owing: ${this.state.clientInfoG4.moneyOwedG4}</li>                   
+                    </ul>                    
                 </div>
                 <div id="output-values" className="median-values" >
-                    <h3>Purchase Order Summary</h3>
+                    <h4>Purchase Order Summary</h4>
                     {posummary}
-                    <h3>Ordered Parts</h3>
+                    <h4>Ordered Parts</h4>
                     {details}
-                    <div><button id="move=to-list-2" onClick={() => this.goToPOListUIG4()}>Back to the PO List</button><br /></div>
+                    <div>
+                        <button className="btn btn-primary btn-block block-gap" onClick={() => this.goToPOListUIG4()}>
+                        Back to the PO List
+                        </button>
+
+                    <br /><br />
+                    </div>
                 </div>
                 <br />                
             </div>

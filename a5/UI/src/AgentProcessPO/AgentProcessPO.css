@@ -55,3 +55,8 @@
   .block-gap-left{
     margin-left:10px;
   }
+
+  .warning{
+    color: red;
+    margin-left:10px;
+  }

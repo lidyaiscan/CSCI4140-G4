@@ -6,10 +6,11 @@ export default class ClientListPOs extends Component {
 
     constructor() {
         super();
-        this.state = {clientIdG4:localStorage.getItem('id'), poNoG4: '', posG4: [], clientInfoG4:{} };
+        this.state = {clientIdG4:localStorage.getItem('id'), poNoG4: '', posG4: [], clientInfoG4:{}, statusMsgG4:'' };
         this.getClientInfoG4();
         this.getPOsG4 = this.getPOsG4.bind(this);
         this.getSpecificPOG4 = this.getSpecificPOG4.bind(this);
+        this.getPOsG4();
     }
 
     //** Make the Web Service Calls **//
@@ -22,10 +23,11 @@ export default class ClientListPOs extends Component {
         
         Axios.get(purchase_orders).then((response) => {
             if(response.data != null){
-                this.setState({posG4: response.data });
+                this.setState({posG4: response.data, poNoG4:'', statusMsgG4:'' });
             }
         }).catch((err) => {
-            alert(err);
+            console.log(err);
+            this.state.statusMsgG4 = "Error Occurred";
         });
     }
 
@@ -33,20 +35,23 @@ export default class ClientListPOs extends Component {
 
         //Validation
         if(this.state.poNoG4 === ''){
-            alert('Invalid PO No. Please enter one of your valid PO IO numbers.');
+            this.state.statusMsgG4 = 'Invalid PO No. Please enter a valid PO number.';
         }else if(isNaN(this.state.poNoG4)){
-                alert('Not a number. Please enter a valid number.');
+            this.state.statusMsgG4 = 'Not a number. Please enter a valid number.';
         }else{
 
             //Get a PO
             let purchase_orders = '/client/pos/summary/'+this.state.clientIdG4+'/'+this.state.poNoG4;    
             
             Axios.get(purchase_orders).then((response) => {
-                if(response.data != null){
-                    this.setState({posG4: response.data });
+                if(response.data.length>0){
+                    this.setState({posG4: response.data, statusMsgG4:'' });                    
+                }else{
+                    this.setState({posG4: [], statusMsgG4:'No Data. You can only search for orders of your company.'});
                 }
             }).catch((err) => {
-                alert(err);
+                console.log(err);
+                this.state.statusMsgG4 = "Error Occurred";
             });
         }
     }
@@ -61,7 +66,8 @@ export default class ClientListPOs extends Component {
                 this.setState({clientInfoG4: response.data });
             }
         }).catch((err) => {
-            alert(err);
+            console.log(err);
+            this.state.statusMsgG4 = "Error Occurred";
         });
     }
 
@@ -73,17 +79,10 @@ export default class ClientListPOs extends Component {
         this.setState({ poNoG4: event.target.value });
     }
     goToPOLineUIG4= (poNoG4) => {
+        this.state.statusMsgG4 = '';
         localStorage.setItem('poNoG4', poNoG4);
         window.location.href = "/client/podetail";
     }
-
-    createNewPoLink = () => {
-        window.location.href = '/client/create'
-    }
-    
-    viewAllProducts = () => {
-        window.location.href = '/listparts'
-    } 
 
     //UI Layout
     render() {
@@ -100,50 +99,43 @@ export default class ClientListPOs extends Component {
                 <li>Order Total Quantity: {po.TOTAL_QTY}</li>
                 <li>Order Total Price: ${po.TOTAL_COST}</li>                    
             </ul>
-            <button id="submit-btn" onClick={() => this.goToPOLineUIG4(po.poNoG4)}>View PO Line Details</button>
+            <button className="btn btn-primary btn-block block-gap" onClick={() => this.goToPOLineUIG4(po.poNoG4)}>
+                View PO Lines Detail
+            </button>
         </div>
         )});
 
         //Overall Layout
         return (
             <div>
+                <br />
                 <div id="client-info" className="median-values" >
-                    <h3>Hello, Client [{this.state.clientInfoG4.clientCompNameG4}]</h3>
-                    <ul>
-                        <li>City: {this.state.clientInfoG4.clientCityG4}</li>
-                        <li>Money Owing: ${this.state.clientInfoG4.moneyOwedG4}</li>                   
-                    </ul>
-                </div>
-                <div className="search-input">
-             
-                    <h4>Search Purchase Orders</h4>
-
-                    <div className="form-group">
-                    View All Orders <button id="submit-btn" onClick={() => this.getPOsG4()}>Display All</button>
-                    </div>    
-                    Or,<br />
-
-                    <div className="form-group">
-                    Search by a specific PO by No.
-                        <input type="text" className="form-control" value={this.state.poNoG4}
-                            onChange={this.handlePoIdG4} placeholder="Enter a PO No." />
-                        <button id="submit-btn" onClick={() => this.getSpecificPOG4()}>Search</button>
-                    </div>                  
-
-                </div>
-                <br />
+                    <h5>Client {this.state.clientInfoG4.clientCompNameG4} (City: {this.state.clientInfoG4.clientCityG4}, Money Owing: ${this.state.clientInfoG4.moneyOwedG4})</h5>
+                </div> 
                 <div id="output-values" className="median-values" >
-                    <h3>Purchase Orders</h3>
-                <button className="btn btn-primary btn-block switch-button" onClick={this.createNewPoLink}>
-                    Create New
-                </button>
-                    {order}
-                <button className="btn btn-primary btn-block switch-button" onClick={this.viewAllProducts}>
-                    View All Products
-                </button>
-                </div>
-                
+                    <h3>{this.state.clientInfoG4.clientCompNameG4} Purchase Orders</h3>
+                    <div className="search-input">
+             
+                        <h5>Search</h5>
+                        <div className="form-group">
+                            Display all, or, Search by PO no.
+                            <input type="text" className="form-control" value={this.state.poNoG4}
+                                onChange={this.handlePoIdG4} placeholder="Enter a PO No." />
+
+                            <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getPOsG4()}>
+                                Display All
+                            </button>
+                            <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getSpecificPOG4()}>
+                                Search
+                            </button>
+
+                            <div className="warning">{this.state.statusMsgG4}</div>
+                        </div>                  
+
+                </div>                
                 <br />
+                {order}
+                </div>
             </div>
         );
     }

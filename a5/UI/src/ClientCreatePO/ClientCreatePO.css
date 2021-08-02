@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 60%;
 }
 
 .create-btn-container {

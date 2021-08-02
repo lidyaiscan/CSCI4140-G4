@@ -15,6 +15,10 @@ export default class Header extends Component {
         return false
     }
 
+    gotoSubmitPO = () => {
+        window.location.href = `/client/create`;
+    }
+
     gotoListAllPOs = () => {
         window.location.href = `/${localStorage.getItem('type')}/listpos`;
     }
@@ -38,6 +42,18 @@ export default class Header extends Component {
     render() {
         const clientMenus = (
             <>
+            <button className="btn greeting">
+                Logged Client: {localStorage.getItem('username')}
+            </button>            
+            <button className="btn btn-primary btn-block appmenu" onClick={this.gotoListAllParts}>
+                List Parts
+            </button>
+            <button className="btn btn-primary btn-block appmenu" onClick={this.gotoListAllPOs}>
+                List POs
+            </button>
+            <button className="btn btn-primary btn-block appmenu" onClick={this.gotoSubmitPO}>
+                Submit PO
+            </button>
             </>
         )
         const agentMenus = (            
@@ -62,8 +78,8 @@ export default class Header extends Component {
         )
         return (
             <>
-            <div className="header-title-container"><h1>CSCI4140 G4 A4</h1></div>
-            {this.isAgent() ?  agentMenus : clientMenus}
+            <div className="header-title-container"><h1>CSCI4140 G4 A4</h1></div>            
+            {this.isLoggedIn() ?  this.isAgent() ?  agentMenus : clientMenus : null}
             {this.isLoggedIn() ?  logoutBtn : null}
 
             </>

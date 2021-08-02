@@ -1,0 +1,15 @@
+.parts{
+  width: 450px;
+  height: max-content;
+  padding: 20px;
+  border: 1px solid rgb(104, 68, 44);
+  align-self: center;
+  background-color: rgb(190, 236, 248);
+  border-radius: 10px;
+  margin: 15px;
+  }
+
+  .warning{
+    color: red;
+    margin-left:10px;
+  }

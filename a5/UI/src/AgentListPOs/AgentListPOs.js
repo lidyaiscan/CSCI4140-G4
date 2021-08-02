@@ -24,7 +24,8 @@ export default class AgentListPOs extends Component {
                 this.setState({posG4: response.data, statusMsg:'' });
             }
         }).catch((err) => {
-            this.state.statusMsg = err;
+            console.log(err);
+            this.state.statusMsg = "Error Occurred";
         });
     }
 
@@ -32,7 +33,7 @@ export default class AgentListPOs extends Component {
 
         //Validation
         if(this.state.poNoG4 === ''){
-            this.state.statusMsg = 'Invalid PO No. Please enter one of your valid PO IO numbers.';
+            this.state.statusMsg = 'Invalid PO No. Please enter a valid PO ID.';
         }else if(isNaN(this.state.poNoG4)){
             this.state.statusMsg = 'Not a number. Please enter a valid number.';
         }else{
@@ -47,7 +48,8 @@ export default class AgentListPOs extends Component {
                     this.setState({posG4: [], statusMsg:'No Data'});
                 }
             }).catch((err) => {
-                alert(err);
+                console.log(err);
+                this.state.statusMsg = "Error Occurred";
             });
         }
     }
@@ -92,45 +94,34 @@ export default class AgentListPOs extends Component {
 
         //Overall Layout
         return (
-            <div>
-                <div id="client-info" className="median-values" >
-                    <h3>Hello, Agent <i>{this.state.agentName}</i></h3>    
+            <>
+                <div>
+                    <div id="output-values" className="median-values" >
+                        <h3>Purchase Orders</h3>                    
+                        <div className="search-input">  
+
+                            <h5>Search</h5>
+                            <div className="form-group">
+                                Display all, or, Search by PO no.
+                                <input type="text" className="form-control" value={this.state.poNoG4}
+                                    onChange={this.handlePoIdG4} placeholder="Enter a PO No." />
+
+                                <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getPOsG4()}>
+                                    Display All
+                                </button>
+                                <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getSpecificPOG4()}>
+                                    Search
+                                </button>
+
+                                <div className="warning">{this.state.statusMsg}</div>
+                            </div>                  
+
+                        </div>
+                        <br />
+                        {order}
+                    </div>
                 </div>
-                <div className="search-input">
-             
-                    <h4>Search Purchase Orders</h4>
-
-                    <div className="form-group">
-                    View All Orders 
-
-                    <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getPOsG4()}>
-                        Display All
-                    </button>
-
-                    </div>    
-                    Or,<br />
-
-                    <div className="form-group">
-                    Search by a specific PO by No.
-                        <input type="text" className="form-control" value={this.state.poNoG4}
-                            onChange={this.handlePoIdG4} placeholder="Enter a PO No." />
-
-                        <button className="btn btn-primary btn-block block-gap-left" onClick={() => this.getSpecificPOG4()}>
-                        Search
-                        </button>
-
-                        <div className="warning">{this.state.statusMsg}</div>
-                    </div>                  
-
-                </div>
-                <br />
-                <div id="output-values" className="median-values" >
-                    <h3>Purchase Orders</h3>
-                    {order}
-                </div>
-                
-                <br />
-            </div>
+            </> 
         );
     }
 }

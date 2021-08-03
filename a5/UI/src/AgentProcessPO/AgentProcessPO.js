@@ -161,12 +161,12 @@ export default class AgentProcessPO extends Component {
                 <div className="order-detail" key={index}>
                     <b>Ordered Item (Line ID: {pl.lineNoG4})</b>
                     <ul>
-                        <li>Part Name: {pl.partNameG4} (Part No: {pl.partNoG4})</li>
-                        <li>Part Quantity In Stock: {pl.partQtyG4}</li>
-                        <li>Part Current Unit Price: ${pl.currentPriceG4}</li>
-                        <li>Order Quantity: {pl.POqtyG4}</li>
-                        <li>Order Part Unit Price: ${pl.linePartUnitPrice}</li>
+                        <li>Part Name: {pl.partNameG4} (Part No: {pl.partNoG4})</li>                        
+                        <li>Ordered Quantity: {pl.POqtyG4}</li>
+                        <li>Ordered Part Unit Price: ${pl.linePartUnitPrice}</li>
                         <li>Order Line Total Cost: ${pl.linePriceG4}</li>
+                        <li>Part Currrent Quantity of Stock: {pl.partQtyG4}</li>
+                        <li>Part Current Unit Price: ${pl.currentPriceG4}</li>
                         <li>Current Status: {pl.statusDescriptionG4}</li>
                         <li>Submitted Date/Time: {pl.datePOG4}</li>
                     </ul>

@@ -74,7 +74,7 @@ export default class ListParts extends Component {
                             <p>Quantity on Hand (Stock): {part.qtyG4}</p>
                             <p>Min. Qty for Reorder: {part.minQtyG4}</p>                                      
                             <p>Reorder Needed? {part.reorderG4===1?'YES':'NO'} (if yes, the product is not available at this point)</p>
-                            <label for="quantity">Quantity can be ordered: {part.qtyG4}</label> 
+                            <label for="quantity">Max. Qty that can be ordered: {part.qtyG4}</label> 
                             <br /><br /> 
                             <button className="btn btn-primary btn-block block-gap" onClick={() => this.goToUpdatePartG4(part.partNoG4)}>
                                 Update Part Price and Qty

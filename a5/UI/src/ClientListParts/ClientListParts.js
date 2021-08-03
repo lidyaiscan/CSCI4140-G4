@@ -63,11 +63,8 @@ export default class ClientListParts extends Component {
                             <h4>Part Number: {part.partNoG4}</h4>
                             <p>Part Name: {part.partNameG4}</p>
                             <p>Part Description: {part.partDescriptionG4}</p>
-                            <p>Unit Price: ${part.currentPriceG4}</p>
-                            <p>Quantity on Hand (Stock): {part.qtyG4}</p>
-                            <p>Min. Qty for Reorder: {part.minQtyG4}</p>                                      
-                            <p>Reorder Needed? {part.reorderG4===1?'YES':'NO'} (if yes, the product is not available at this point)</p>
-                            <label for="quantity">Quantity can be ordered: {part.qtyG4}</label>                                
+                            <p>Unit Price: ${part.currentPriceG4}</p>                                                             
+                            <label for="quantity">Max. Qty that can be ordered (In Stock): {part.qtyG4}</label>                                
                     </div>
          )});    
 

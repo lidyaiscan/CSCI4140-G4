@@ -30,6 +30,7 @@ INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (2, 'Client pa
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (3, 'On the way');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (4, 'Received');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (5, 'Canceled');
+INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (6, 'Filled');
 
 
 -- POsG4 table --

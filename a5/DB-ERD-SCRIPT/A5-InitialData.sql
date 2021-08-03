@@ -30,7 +30,7 @@ INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (2, 'Client pa
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (3, 'On the way');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (4, 'Received');
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (5, 'Canceled');
-
+INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (6, 'Filled');
 
 -- POsG4 table --
 INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(1, 2, '2021-05-11 02:08:38', 1);
@@ -46,16 +46,16 @@ INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(10
 
 
 -- POLinesG4 table --
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(1, 2, 3, 3789.99, 12);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(2, 2, 1, 555.99, 6);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(3, 5, 5, 111.99, 15);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(4, 4, 3, 222.99, 719);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(5, 1, 2, 333.99, 15);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(6, 3, 7, 444.99, 12);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(7, 2, 8, 555.99, 11);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(8, 2, 9, 666.99, 50);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(9, 7, 5, 777.99, 60);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(10, 10, 8, 888.99, 80);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(1, 3, 3, 100.99, 40);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(2, 4, 1, 200.50, 40);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(3, 5, 5, 300.99, 40);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(4, 6, 3, 400.50, 50);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(5, 7, 2, 450.99, 50);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(6, 8, 7, 500.99, 50);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(7, 9, 8, 600.99, 60);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(8, 10, 9, 700.50, 60);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(9, 1, 5, 200.99, 60);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(10, 2, 8, 150.99, 80);
 
 -- PaymentG4 table --
 INSERT INTO PaymentG4 (`paymentNoG4`, `poNoG4`, `amountPaidG4`, `datePaidG4`) VALUES (1, 5, 111.9900, '2020-11-28 08:10:10');

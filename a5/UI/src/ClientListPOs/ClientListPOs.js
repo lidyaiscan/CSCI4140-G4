@@ -108,12 +108,11 @@ export default class ClientListPOs extends Component {
         //Overall Layout
         return (
             <div>
-                <br />
-                <div id="client-info" className="median-values" >
-                    <h5>Client {this.state.clientInfoG4.clientCompNameG4} (City: {this.state.clientInfoG4.clientCityG4}, Money Owing: ${this.state.clientInfoG4.moneyOwedG4})</h5>
-                </div> 
+                <br />                
                 <div id="output-values" className="median-values" >
-                    <h3>{this.state.clientInfoG4.clientCompNameG4} Purchase Orders</h3>
+                    <h2>{this.state.clientInfoG4.clientCompNameG4} Purchase Orders</h2>
+                    <h6>Client {this.state.clientInfoG4.clientCompNameG4} ({this.state.clientInfoG4.clientCityG4}): Current Money Owing ${this.state.clientInfoG4.moneyOwedG4}</h6>
+                    <br />
                     <div className="search-input">
              
                         <h5>Search</h5>

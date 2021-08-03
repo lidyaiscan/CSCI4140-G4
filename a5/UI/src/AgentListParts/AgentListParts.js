@@ -86,7 +86,7 @@ export default class ListParts extends Component {
          return (
              <>            
                 <div id="output-values" className="median-values" >
-                    <h3>Products</h3>
+                    <h2>Products</h2>
                     <div className="search-input">
                 
                         <h5>Search</h5>

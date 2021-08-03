@@ -178,7 +178,7 @@ export default class AgentProcessPO extends Component {
             <div>
                 <br />
                 <div id="client-info" className="median-values" >    
-                    <h3>Processing the Purchase Order (No. {this.state.poIdG4}) of client {this.state.clientInfoG4.clientCompNameG4}</h3>                
+                    <h2>Processing the Purchase Order (No. {this.state.poIdG4}) of client {this.state.clientInfoG4.clientCompNameG4}</h2>                
                     <ul>
                         <li>Client Name: {this.state.clientInfoG4.clientCompNameG4}</li>
                         <li>City: {this.state.clientInfoG4.clientCityG4}</li>

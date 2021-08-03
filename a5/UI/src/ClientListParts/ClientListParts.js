@@ -75,9 +75,11 @@ export default class ClientListParts extends Component {
          return (
              <>            
                 <div id="output-values" className="median-values" >
-                    <h3>Products</h3>
+                    <br />
+                    <h2>Products</h2>
+                    <br />
                     <div className="search-input">
-                
+                    
                         <h5>Search</h5>
                         <div className="form-group ">
                             Display all, or, Search by part no.

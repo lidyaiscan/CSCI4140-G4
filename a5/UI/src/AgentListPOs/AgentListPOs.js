@@ -98,7 +98,7 @@ export default class AgentListPOs extends Component {
             <>
                 <div>
                     <div id="output-values" className="median-values" >
-                        <h3>Purchase Orders</h3>                    
+                        <h2>Purchase Orders</h2>                    
                         <div className="search-input">  
 
                             <h5>Search</h5>

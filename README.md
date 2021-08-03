@@ -10,7 +10,6 @@ CSCI 4140 Database Assignments
 
 # A5
 
-Navigate to the GitLab repository ([link](https://git.cs.dal.ca/jcheung/csci4140-g4/-/tree/master)).
 
 All assignment related files are in subfolder /a5.
 

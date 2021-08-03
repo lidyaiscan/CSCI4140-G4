@@ -60,3 +60,8 @@
     color: red;
     margin-left:10px;
   }
+
+  .order-detail-container {
+    display: flex;
+    flex-direction: row
+  }

@@ -120,7 +120,7 @@ export default class AgentProcessPO extends Component {
                 )
             } else if(pl["@COMMITPROMPT"] === 0)
             return(
-                <div className="order-detail" key={index}>
+                <div className="order-detail order-detail-container" key={index}>
                     <b>Do you want to cancel or commit the transaction?</b>
                     <div className="form-group">
 

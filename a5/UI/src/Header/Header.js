@@ -27,6 +27,10 @@ export default class Header extends Component {
         window.location.href = `/${localStorage.getItem('type')}/listparts`;
     }
 
+    gotoListAllClients = () => {
+        window.location.href = `/${localStorage.getItem('type')}/listclients`;
+    }
+
     logout = () => {
         localStorage.clear()
         window.location.href = "/";
@@ -66,6 +70,9 @@ export default class Header extends Component {
             </button>
             <button className="btn btn-primary btn-block appmenu" onClick={this.gotoListAllPOs}>
                 List POs
+            </button>
+            <button className="btn btn-primary btn-block appmenu" onClick={this.gotoListAllClients}>
+                List Clients
             </button>
             </>
         )

@@ -17,6 +17,7 @@ import ClientListParts from './ClientListParts/ClientListParts';
 import AgentListPOs from './AgentListPOs/AgentListPOs';
 import AgentPOdetail from './AgentPOdetail/AgentPOdetail';
 import AgentListParts from './AgentListParts/AgentListParts';
+import AgentListClients from './AgentListClients/AgentListClients';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route exact path='/makenewpo' component={MakeNewPo} />          
           <Route exact path='/client/listparts' component={ClientListParts} />
           <Route exact path='/agent/listparts' component={AgentListParts} />
+          <Route exact path='/agent/listclients' component={AgentListClients} />
           <Route exact path='/agent/updatepart' component={AgentUpdatePart} />
         </Switch>
       </Router>

@@ -74,6 +74,7 @@ export default class AgentListPOs extends Component {
 
         //PO Summary Box
         let order = this.state.posG4?.map((po, index)=>{
+
         return(
             <div className="order" key={index}>
             <b>Purchase Order</b> (No. {po.poNoG4})
@@ -89,9 +90,14 @@ export default class AgentListPOs extends Component {
             <button className="btn btn-primary btn-block block-gap" onClick={() => this.goToPOLineUIG4(po.poNoG4)}>
                 View PO Line Details
             </button>
-            <button className="btn btn-primary btn-block" onClick={() => this.startProcessPO(po.poNoG4)}>
+            {(po.statusG4 === 6) ? 
+            (<button className="btn alreadydone">
+                Already Processed.
+            </button>):
+            (<button className="btn btn-primary btn-block" onClick={() => this.startProcessPO(po.poNoG4)}>
                 Process this PO
-            </button>
+            </button>)
+            }
         </div>
         )});
 

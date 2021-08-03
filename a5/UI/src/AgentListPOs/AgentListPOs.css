@@ -65,3 +65,8 @@
   color: red;
   margin-left:10px;
 }
+
+.alreadydone{
+  background-color: rgb(162, 162, 163);
+  margin-right:5px;
+}

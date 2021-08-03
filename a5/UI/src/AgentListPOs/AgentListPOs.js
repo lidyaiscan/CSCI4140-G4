@@ -79,6 +79,7 @@ export default class AgentListPOs extends Component {
             <b>Purchase Order</b> (No. {po.poNoG4})
             <ul>
                 <li>Client Company: {po.clientCompNameG4}</li>
+                <li>Client Money Owing: ${po.moneyOwedG4}</li>
                 <li>Order Status: {po.statusDescriptionG4}</li>
                 <li>Order Date/Time: {po.datePOG4}</li>
                 <li>Order Total Quantity: {po.TOTAL_QTY}</li>

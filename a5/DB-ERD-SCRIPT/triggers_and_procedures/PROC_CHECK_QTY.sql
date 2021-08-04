@@ -36,6 +36,9 @@ BEGIN
         IF (CURR_QTY >= ORDER_QTY) THEN
             -- update new qty.
             UPDATE PartsG4 SET qtyG4 = CURR_QTY - ORDER_QTY WHERE partNoG4 = PARTNO;
+			IF ((CURR_QTY - ORDER_QTY) < MIN_QTY) THEN
+				UPDATE PartsG4 SET reorderG4 = 1 WHERE partNoG4 = PARTNO;
+			END IF;
         ELSE
         	SET @COMMITPROMPT = 1;
             ROLLBACK;

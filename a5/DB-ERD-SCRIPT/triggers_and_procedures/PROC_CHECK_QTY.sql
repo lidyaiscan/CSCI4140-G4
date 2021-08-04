@@ -33,7 +33,7 @@ BEGIN
         SELECT partNoG4 INTO PARTNO FROM POLinesG4 WHERE lineNoG4 = POLINESNO;
         SELECT qtyG4 INTO CURR_QTY FROM PartsG4 WHERE partNoG4 = PARTNO;
         SELECT minQtyG4 INTO MIN_QTY FROM PartsG4 WHERE partNoG4 = PARTNO;
-        IF (CURR_QTY > ORDER_QTY) THEN
+        IF (CURR_QTY >= ORDER_QTY) THEN
             -- update new qty.
             UPDATE PartsG4 SET qtyG4 = CURR_QTY - ORDER_QTY WHERE partNoG4 = PARTNO;
         ELSE

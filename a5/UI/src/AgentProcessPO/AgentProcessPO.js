@@ -49,15 +49,17 @@ export default class AgentProcessPO extends Component {
                         });
 
                         // Start transaction for checking quantity
-                        let qty_check = '/agent/pos/checkqty/'+this.state.poIdG4 +'/CHECK';
-                        Axios.get(qty_check).then((response) => {
-                            if(response.data != null){
-                                this.setState({commitPrompt: response.data[0] });
-                            }
-                        }).catch((err) => {
-                            console.log(err);
-                            this.state.statusMsgG4 = "Error Occurred";
-                        });
+                        if(this.state.statusG4 !== 6){
+                            let qty_check = '/agent/pos/checkqty/'+this.state.poIdG4 +'/CHECK';
+                            Axios.get(qty_check).then((response) => {
+                                if(response.data != null){
+                                    this.setState({commitPrompt: response.data[0] });
+                                }
+                            }).catch((err) => {
+                                console.log(err);
+                                this.state.statusMsgG4 = "Error Occurred";
+                            });
+                        }
                         
                     }
                 }).catch((err) => {
@@ -109,36 +111,36 @@ export default class AgentProcessPO extends Component {
     }
 
     //UI Layout
-    render() {
+    render() {  
 
         //Processing Info & Results
         let window = this.state.commitPrompt?.map((pl, index)=>{
 
-            if(pl["@COMMITPROMPT"] === 1){
+                if(pl["@COMMITPROMPT"] === 1){
+                    return(
+                        <div className="prompt">
+                            <b>The part(s) you ordered is(are) out of stock</b>
+                        </div>
+                    )
+                } else if(pl["@COMMITPROMPT"] === 0)
                 return(
-                    <div className="prompt">
-                        <b>The part(s) you ordered is(are) out of stock</b>
+                    <div className="order-detail order-detail-container" key={index}>
+                        <b>Do you want to cancel or commit the transaction?</b>
+                        <div className="form-group">
+
+                            <button className="btn btn-primary btn-block block-gap" onClick={() => this.cancel()}>
+                            Cancel
+                            </button>
+
+                        </div>
+                        <div className="form-group">
+
+                            <button className="btn btn-primary btn-block block-gap" onClick={() => this.commit()}>
+                            Commit
+                            </button>
+                        </div>
                     </div>
                 )
-            } else if(pl["@COMMITPROMPT"] === 0)
-            return(
-                <div className="order-detail order-detail-container" key={index}>
-                    <b>Do you want to cancel or commit the transaction?</b>
-                    <div className="form-group">
-
-                        <button className="btn btn-primary btn-block block-gap" onClick={() => this.cancel()}>
-                        Cancel
-                        </button>
-
-                    </div>
-                    <div className="form-group">
-
-                        <button className="btn btn-primary btn-block block-gap" onClick={() => this.commit()}>
-                        Commit
-                        </button>
-                    </div>
-                </div>
-            )
         });
 
         //PO Summary Box
@@ -190,8 +192,10 @@ export default class AgentProcessPO extends Component {
                 <hr/>
                 <div id="client-info" className="median-values" >
                     <h3>Processing Info and Actions</h3>
-                    <br />                  
-                    {window}
+                    <br />   
+                 
+                    {(this.state.statusG4===6)?(<h4><i>Already Processed.</i></h4>):(window)}
+
                     <div className="warning">{this.state.statusMsgG4}</div>
                     <br />
                 </div>

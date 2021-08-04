@@ -7,7 +7,8 @@ export default class AgentProcessPO extends Component {
     constructor() {
         super();
         this.state = {agentIdG4:localStorage.getItem('id'), agentName: localStorage.getItem('username'), 
-                        poIdG4:localStorage.getItem('poNoG4'), clientIdG4:'', clientInfoG4:{}, poG4: [], polinesG4: [], statusMsgG4:''};
+                        poIdG4:localStorage.getItem('poNoG4'), clientIdG4:'', clientInfoG4:{}, poG4: [], statusG4:'',
+                        polinesG4: [], statusMsgG4:''};
         this.getPOdetailsG4();
     }
 
@@ -31,7 +32,8 @@ export default class AgentProcessPO extends Component {
                 Axios.get(client_and_PO_info).then((response) => {
                     if(response.data != null){
                         this.setState({
-                            poG4: response.data                            
+                            poG4: response.data,
+                            statusG4: response.data[0].statusG4                            
                         });
 
                         // Client Info Summary
@@ -188,7 +190,7 @@ export default class AgentProcessPO extends Component {
                 <hr/>
                 <div id="client-info" className="median-values" >
                     <h3>Processing Info and Actions</h3>
-                    <br />
+                    <br />                  
                     {window}
                     <div className="warning">{this.state.statusMsgG4}</div>
                     <br />

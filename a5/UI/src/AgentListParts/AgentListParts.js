@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Axios from 'axios';
-import '../ListParts/ListParts.css';
+import '../AgentListParts/AgentListParts.css';
 
-export default class ListParts extends Component {
+export default class AgentListParts extends Component {
 
     constructor() {
         super();

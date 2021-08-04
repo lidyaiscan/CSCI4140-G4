@@ -3,7 +3,7 @@ import { Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import Axios from 'axios';
 import './AgentUpdatePart.css'
 
-export default class UpdatePart extends Component {
+export default class AgentUpdatePart extends Component {
 
     constructor() {
         super();

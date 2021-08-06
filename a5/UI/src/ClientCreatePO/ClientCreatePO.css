@@ -29,5 +29,7 @@
 }
 
 .create-po-controls {
-
+    display: flex;
+    flex-direction: row;
+    width: max-content;
 }

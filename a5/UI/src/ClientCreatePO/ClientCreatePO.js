@@ -136,7 +136,7 @@ export default class ClientCreatePO extends Component {
                     <Button disabled={this.state.selectedTitle === "Select a Part" || this.state.selectedQty < 1} className="addPartBtn" variant="btn btn-success" onClick={this.addPart}>
                         Add Part to PO
                     </Button>
-                    <Button disabled={this.state.selectedQty < 1} className="addPartBtn create-clear-btn" variant="btn btn-warning" onClick={this.clear}>
+                    <Button disabled={this.state.partsAry.length < 1} className="addPartBtn create-clear-btn" variant="btn btn-warning" onClick={this.clear}>
                         Clear PO
                     </Button>
                     </div>

@@ -2,27 +2,27 @@ USE `G4`;
 
 -- ClientG4 table --
 INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (1, 'Ford', 'Halifax', '12345', 10000);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (2, 'Toyota', 'Toronto', 'abc123', 3.50);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (3, 'Nissan', 'Vancouver', 'nitro', 1020.10);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (4, 'Honda', 'Truro', 'cats', 300.10);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (5, 'GMC', 'Boston', 'dogs', 9888.01);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (6, 'Chevrolet', 'San Francisco', 'birds', 150.15);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (7, 'Acura', 'Denver', 'trees', 9222.01);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (8, 'Lexus', 'Dallas', 'chickens', 111.19);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (9, 'Audi', 'Houston', 'plants', 200.10);
-INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (10, 'Bentley', 'New York', 'cars100', 1600);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (2, 'Toyota', 'Toronto', 'abc123', 10000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (3, 'Nissan', 'Vancouver', 'nitro', 10000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (4, 'Honda', 'Truro', 'cats', 10000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (5, 'GMC', 'Boston', 'dogs', 10000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (6, 'Chevrolet', 'San Francisco', 'birds', 5000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (7, 'Acura', 'Denver', 'trees', 5000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (8, 'Lexus', 'Dallas', 'chickens', 5000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (9, 'Audi', 'Houston', 'plants', 5000);
+INSERT INTO ClientG4 (`clientCompIdG4`, `clientCompNameG4`, `clientCityG4`, `clientCompPasswordG4`, `moneyOwedG4`) VALUES (10, 'Bentley', 'New York', 'cars100', 5000);
 
 -- PartsG4 table --
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(1, 'Engine', 'The heart and soul of your vehicle is the internal combustion engine', '3789.99', 12, 5, 0);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(2, 'Transmission', 'The transmission is a gearbox filled with gears and gear trains that makes effective use of the engine’s torque to change the gears and power the vehicle', '2339.99', 5, 6, 1);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(3, 'Battery', 'The battery delivers the electricity needed to run your vehicle’s electrical components', '59.99', 35, 25, 0);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(4, 'Alternartor', 'Part of the electrical system, the alternator charges the battery and powers the electrical system while your car is running', '119.99', 48, 45, 0);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(5, 'Radiator', 'The radiator is responsible for helping the engine keep cool by removing heat from coolant before it is pumped back through the engine', '349.99', 8, 10, 1);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(6, 'Brakes', 'Found on all four wheels, your brakes are one of the most important safety systems on your vehicle', '79.99', 24, 15, 0);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(7, 'Muffler', 'Keeps the exhaust system quiet through the use of baffles or other materials that reduce or muffle the sound', '159.99', 19, 10, 0);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(8, 'Tailpipe', 'Carries exhaust fumes from the muffler to outside of the vehicle', '89.99', 32, 100, 1);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(9, 'Fuel Tank', 'Typically located before the rear axle, the fuel tank holds the gasoline that powers your vehicle', '129.99', 27, 25, 0);
-INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(10, 'Front Axle', 'Part of the suspension system, the front axle is where the front wheel hubs are attached', '259.99', 13, 50, 1);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(1, 'Engine', 'The heart and soul of your vehicle is the internal combustion engine', '100', 20, 5, 0);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(2, 'Transmission', 'The transmission is a gearbox filled with gears and gear trains that makes effective use of the engine’s torque to change the gears and power the vehicle', '100', 5, 6, 1);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(3, 'Battery', 'The battery delivers the electricity needed to run your vehicle’s electrical components', '50', 35, 25, 0);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(4, 'Alternartor', 'Part of the electrical system, the alternator charges the battery and powers the electrical system while your car is running', '200', 48, 45, 0);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(5, 'Radiator', 'The radiator is responsible for helping the engine keep cool by removing heat from coolant before it is pumped back through the engine', '10', 20, 10, 1);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(6, 'Brakes', 'Found on all four wheels, your brakes are one of the most important safety systems on your vehicle', '50', 24, 15, 0);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(7, 'Muffler', 'Keeps the exhaust system quiet through the use of baffles or other materials that reduce or muffle the sound', '50', 19, 10, 0);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(8, 'Tailpipe', 'Carries exhaust fumes from the muffler to outside of the vehicle', '100', 32, 100, 1);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(9, 'Fuel Tank', 'Typically located before the rear axle, the fuel tank holds the gasoline that powers your vehicle', '50', 27, 25, 0);
+INSERT INTO PartsG4 (`partNoG4`, `partNameG4`, `partDescriptionG4`, `currentPriceG4`, `qtyG4`, `minQtyG4`, `reorderG4`) VALUES(10, 'Front Axle', 'Part of the suspension system, the front axle is where the front wheel hubs are attached', '100', 5, 50, 1);
 
 -- StatusG4 table --
 INSERT INTO StatusG4 (`statusNoG4`, `statusDescriptionG4`) VALUES (1, 'Ordered');
@@ -46,16 +46,16 @@ INSERT INTO POsG4 (`poNoG4`, `clientCompIdG4`, `datePOG4`, `statusG4`) VALUES(10
 
 
 -- POLinesG4 table --
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(1, 3, 3, 100.99, 40);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(2, 4, 1, 200.50, 40);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(3, 5, 5, 300.99, 40);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(4, 6, 3, 400.50, 50);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(5, 7, 2, 450.99, 50);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(6, 8, 7, 500.99, 50);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(7, 9, 8, 600.99, 60);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(8, 10, 9, 700.50, 60);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(9, 1, 5, 200.99, 60);
-INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(10, 2, 8, 150.99, 80);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(1, 3, 3, 250, 5);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(2, 4, 1, 600, 6);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(3, 5, 5, 30, 3);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(4, 6, 3, 100, 2);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(5, 7, 2, 100, 1);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(6, 8, 7, 50, 1);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(7, 9, 8, 1009, 1);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(8, 10, 9, 200, 4);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(9, 1, 5, 70, 7);
+INSERT INTO POLinesG4 (`lineNoG4`, `poNoG4`, `partNoG4`, `linePriceG4`, `qtyG4`) VALUES(10, 2, 8, 5000, 300000);
 
 -- PaymentG4 table --
 INSERT INTO PaymentG4 (`paymentNoG4`, `poNoG4`, `amountPaidG4`, `datePaidG4`) VALUES (1, 5, 111.9900, '2020-11-28 08:10:10');

@@ -98,7 +98,7 @@ const clientGetPoByNoG4 = (req, res) => new Promise((resolve, reject) => {
         return res.status(400).send('Bad Request - poNoG4 must be a number') // Return a 400 - Bad Request
     }
 
-    const q = `SELECT POLinesG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4, POLinesG4.partNoG4, linePriceG4, PartsG4.currentPriceG4, POLinesG4.qtyG4 as POqtyG4, PartsG4.qtyG4 as partQtyG4, partNameG4 FROM POsG4 
+    const q = `SELECT POLinesG4.poNoG4, POsG4.clientCompIdG4, statusG4, clientCompNameG4, datePOG4, statusDescriptionG4, POLinesG4.partNoG4, linePriceG4, PartsG4.currentPriceG4, POLinesG4.qtyG4 as POqtyG4, PartsG4.qtyG4 as partQtyG4, partNameG4, lineNoG4, (linePriceG4 / POLinesG4.qtyG4) AS partPOUnitPriceG4 FROM POsG4 
     INNER JOIN StatusG4 ON POsG4.statusG4=StatusG4.statusNoG4 
     INNER JOIN ClientG4 ON POsG4.clientCompIdG4=ClientG4.clientCompIdG4 
     INNER JOIN POLinesG4 ON POsG4.poNoG4=POLinesG4.poNoG4

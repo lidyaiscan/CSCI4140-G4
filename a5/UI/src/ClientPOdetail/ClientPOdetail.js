@@ -80,10 +80,11 @@ export default class ClientPOdetail extends Component {
         let details = this.state.polinesG4?.map((pl, index)=>{
         return(
             <div className="order-detail" key={index}>
-                <b>Part Name: {pl.partNameG4}</b> (PO Line No. {pl.partNoG4}, Part No. {pl.partNoG4})
+                <b>Part Name: {pl.partNameG4}</b> (PO Line No. {pl.lineNoG4}, Part No. {pl.partNoG4})
                 <ul>
                     <li>Quantity: {pl.POqtyG4}</li>
-                    <li>Price: ${pl.linePriceG4}</li>
+                    <li>Part Unit Price: ${pl.partPOUnitPriceG4}</li>
+                    <li>Line Total Price: ${pl.linePriceG4}</li>                    
                     <li>Current Status: {pl.statusDescriptionG4}</li>
                     <li>Submitted (Date/Time): {pl.datePOG4}</li>
                 </ul>
